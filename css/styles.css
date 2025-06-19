@@ -1,0 +1,84 @@
+:root {
+  --primary-color: #8fff92;
+  --secondary-color: #152b3a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  transition: all 0.4s linear;
+  border: none;
+  outline: none;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border;
+  -moz-box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: #ffff;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.44);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.header .navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .navbar ul li {
+  margin: 0 1.5rem;
+}
+
+.header .navbar ul li a {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.header .btn-contact {
+  border: solid 1px var(--primary-color);
+  background: transparent;
+  padding: 1.5rem 1.5rem;
+  border-radius: 5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.home {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("/assets/img/banne_001.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
