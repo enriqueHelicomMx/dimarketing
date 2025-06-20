@@ -3,35 +3,54 @@
   --secondary-color: #152b3a;
 }
 
+@font-face {
+  font-family: 'greenth_outline';
+  src: url('/assets/fonts/grennth_outline.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'myriadpro_bold';
+  src: url('/assets/fonts/myriadpro_bold.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'myriadpro_regular';
+  src: url('/assets/fonts/myriadpro_regular.otf') format('truetype');
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  text-transform: capitalize;
-  transition: all 0.4s linear;
-  border: none;
-  outline: none;
-  list-style-type: none;
-  text-decoration: none;
-  box-sizing: border-box;
-  -webkit-box-sizing: border;
-  -moz-box-sizing: border-box;
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box;
 }
-
 html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+   font-size:62.5%; 
+   overflow-x: hidden;
+   text-transform: capitalize;
+   scroll-padding-top: 5.5rem;
+   scroll-behavior: smooth;
 }
-
 body {
-  background: #ffff;
+    font-family: 'myriadpro_regular', sans-serif;
 }
-
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration:none;
+}
+input,
+textarea {
+    border:none; 
+    outline: none;
+}
+button,
+input[type="submit"] {
+    cursor:pointer; 
+}
 section {
-  padding: 2rem 9%;
+    padding:2rem 9%;
 }
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -75,10 +94,14 @@ section {
 }
 
 .home {
-  min-height: 100vh;
-  width: 100vw;
-  background-image: url("/assets/img/banne_001.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* o lo que necesites */
+  overflow: hidden;
+}
+
+.home .swiper-slide .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
