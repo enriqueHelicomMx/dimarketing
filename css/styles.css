@@ -4,53 +4,75 @@
 }
 
 @font-face {
-  font-family: 'greenth_outline';
-  src: url('/assets/fonts/grennth_outline.otf') format('truetype');
+  font-family: "greenth_outline";
+  src: url("/assets/fonts/greenth_outline.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'myriadpro_bold';
-  src: url('/assets/fonts/myriadpro_bold.otf') format('truetype');
+  font-family: "myriadpro_bold";
+  src: url("/assets/fonts/myriadpro_bold.otf") format("truetype");
 }
 
 @font-face {
-  font-family: 'myriadpro_regular';
-  src: url('/assets/fonts/myriadpro_regular.otf') format('truetype');
+  font-family: "myriadpro_regular";
+  src: url("/assets/fonts/myriadpro_regular.otf") format("truetype");
 }
 
 * {
-    margin:0; 
-    padding:0; 
-    box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 html {
-   font-size:62.5%; 
-   overflow-x: hidden;
-   text-transform: capitalize;
-   scroll-padding-top: 5.5rem;
-   scroll-behavior: smooth;
+  font-size: 62.5%;
+  overflow-x: hidden;
+  text-transform: capitalize;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
 }
 body {
-    font-family: 'myriadpro_regular', sans-serif;
+  font-family: "myriadpro_regular", sans-serif;
+  background: var(--secondary-color);
 }
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 a {
-    text-decoration:none;
+  text-decoration: none;
 }
 input,
 textarea {
-    border:none; 
-    outline: none;
+  border: none;
+  outline: none;
 }
 button,
 input[type="submit"] {
-    cursor:pointer; 
+  cursor: pointer;
 }
 section {
-    padding:2rem 9%;
+  padding: 5rem 9%;
 }
+
+.heading {
+  font-size: 5rem;
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem;
+  text-align: center;
+}
+
+.box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -91,6 +113,7 @@ section {
   border-radius: 5rem;
   color: white;
   font-weight: 600;
+  font-size: 1.4rem;
 }
 
 .home {
@@ -98,10 +121,289 @@ section {
   width: 100%;
   height: 100vh; /* o lo que necesites */
   overflow: hidden;
+  padding: 0;
 }
 
 .home .swiper-slide .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.about .box-container {
+  gap: 5rem;
+}
+
+.about .box-container .image {
+  flex: 1 1 40rem;
+  position: relative;
+}
+
+.about .box-container .image .img-base {
+  width: 100%;
+  height: 100%;
+}
+
+.about .box-container .image .img-top {
+  width: 60%;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 1;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: solid 2px var(--primary-color);
+}
+
+.about .box-container .content {
+  flex: 1 1 40rem;
+}
+
+.about .box-container .content p {
+  font-size: 1.7em;
+  color: white;
+  padding: 1rem 0;
+  text-align: justify;
+}
+
+.services .box-container .content {
+  flex: 1 1 40rem;
+}
+
+.services .box-container .content h1 {
+  font-family: "greenth_outline";
+  color: var(--primary-color);
+}
+
+.services .box-container .cards-services {
+  flex: 1 1 60rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.services .box-container .card {
+  flex: 0 0 48%;
+  border: solid 2px var(--primary-color);
+  border-radius: 1.5rem;
+  max-height: 25rem;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* 🔥 Este bloque hace la magia */
+.services .box-container .cards-services:hover .card {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+/* 👆 Excepto el que tiene hover */
+.services .box-container .card:hover {
+  opacity: 1 !important;
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.services .box-container .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services .box-container .card .ribbon {
+  --f: 0.5em;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1.8;
+  padding-inline: 1lh;
+  padding-bottom: var(--f);
+  border-image: conic-gradient(#0008 0 0) 51% / var(--f);
+  clip-path: polygon(
+    100% calc(100% - var(--f)),
+    100% 100%,
+    calc(100% - var(--f)) calc(100% - var(--f)),
+    var(--f) calc(100% - var(--f)),
+    0 100%,
+    0 calc(100% - var(--f)),
+    999px calc(100% - var(--f) - 999px),
+    calc(100% - 999px) calc(100% - var(--f) - 999px)
+  );
+  transform: translate(calc((cos(45deg) - 1) * 100%), -100%) rotate(-45deg);
+  transform-origin: 100% 100%;
+  background-color: red; /* the main color  */
+}
+
+.contact h1 {
+  font-family: "greenth_outline";
+  color: var(--primary-color);
+}
+
+.contact h3 {
+  font-family: "myriadpro_bold";
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.contact .box-container {
+  gap: 5rem;
+}
+
+.contact .box-container .content {
+  flex: 1 1 10rem;
+}
+
+.contact .box-container .content p {
+  color: white;
+  font-size: 1.7rem;
+  font-family: "myriadpro_bold";
+  text-align: justify;
+}
+
+.contact .box-container .content .card {
+  border-radius: 1.5rem;
+  border: solid 2px var(--primary-color);
+  padding: 2rem 5rem;
+  margin: 0 auto;
+}
+
+.contact .box-container .content .card .info-list .info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact .box-container .content .card .info-list .info-item .icon {
+  font-size: 3rem;
+  color: white;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.contact .box-container .content .card .info-list .info-item .info-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.contact
+  .box-container
+  .content
+  .card
+  .info-list
+  .info-item
+  .info-text
+  .info-title {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.contact
+  .box-container
+  .content
+  .card
+  .info-list
+  .info-item
+  .info-text
+  .info-detail {
+  font-size: 1.8rem;
+}
+
+.contact .box-container .form-contact {
+  flex: 1 1 40rem;
+}
+
+.contact .box-container .form-contact form {
+  border: solid 2px var(--primary-color);
+  border-radius: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.contact .box-container .form-contact form .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.contact .box-container .form-contact form input,
+.contact .box-container .form-contact form select,
+.contact .box-container .form-contact form textarea {
+  border: solid 2px var(--primary-color);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-family: "myriadpro_bold";
+}
+
+.contact .box-container .form-contact form input::placeholder,
+.contact .box-container .form-contact form select::placeholder,
+.contact .box-container .form-contact form textarea::placeholder {
+  color: white;
+}
+
+.contact .box-container .form-contact form button {
+  width: 30%;
+  padding: 2rem 1.5rem;
+  background: transparent;
+  border: solid 2px var(--primary-color);
+  border-radius: 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "myriadpro_bold";
+  text-transform: uppercase;
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.44);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 9%;
+}
+
+.footer .credit {
+  flex: 1;
+  text-align: center;
+}
+
+.footer .share {
+  text-align: right;
+}
+
+.footer .credit {
+  color: white;
+  font-size: 1.5rem;
+  font-family: "myriadpro_bold";
+}
+
+.footer .credit span {
+  color: var(--primary-color);
+}
+
+.footer .share ul {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .share ul li a {
+  font-size: 2rem;
+  color: white;
 }
