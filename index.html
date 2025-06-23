@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="telephone=no" />
 
   <title>Dimarketing</title>
 
@@ -22,17 +22,23 @@
 <body>
   <header class="header">
     <a href="#" class="logo">
-      <img src="./assets/img/logo.png" alt="">
+      <img src="./assets/img/logo.png" alt="" />
     </a>
     <nav class="navbar">
       <ul>
-        <li><a href="#home">inicio</a></li>
-        <li><a href="#about">nosotros</a></li>
-        <li><a href="#services">servicios</a></li>
-        <li><a href="#contact">contacto</a></li>
+        <li><a href="#home" data-i18n="nav.home">inicio</a></li>
+        <li><a href="#about" data-i18n="nav.about">nosotros</a></li>
+        <li><a href="#services" data-i18n="nav.services">servicios</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">contacto</a></li>
       </ul>
     </nav>
-    <button class="btn-contact">contactanos 55 3254 1027</button>
+    <div class="language-selector">
+      <button onclick="setLanguage('es')">Español</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+    <button class="btn-contact" data-i18n="btn.contact">
+      contactanos 55 3254 1027
+    </button>
   </header>
 
   <!-- home section -->
@@ -42,7 +48,7 @@
         <div class="swiper-slide">
           <div class="image">
             <picture>
-              <source media="(max-width: 768px)" srcset="./assets/img/banner_001_mobile.jpg" />
+              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_mobile_001.jpg" />
               <img src="./assets/img/banner_001.jpg" alt="Banner 1" />
             </picture>
           </div>
@@ -87,8 +93,8 @@
       </div>
 
       <div class="content">
-        <h1 class="heading">nosotros</h1>
-        <p>
+        <h1 class="heading" data-i18n="about.title">nosotros</h1>
+        <p data-i18n="about.text">
           Somos un equipo de profesionales especializados en MARKETING DIGITAL
           basada en una metodologia Inbound Marketing con el objetivo de
           entregar resultados positivos y autenticos para negocios, Pymes y
@@ -107,47 +113,65 @@
 
   <!-- services -->
   <section class="services" id="services">
+    <h1 class="heading" data-i18n="services.title">Servicios</h1>
     <div class="box-container">
-      <div class="content">
-        <h1 class="heading">servicios</h1>
-      </div>
+      <div class="content content-services"></div>
       <div class="cards-services">
-        <div class="card">
+        <div class="card js-card-service" data-file="id_touch">
           <span class="ribbon">NEW</span>
-          <img src="./assets/img/id_touch.jpg" alt="" />
+          <img src="./assets/img/services/id_touch.jpg" alt="ID Touch" />
+          <div class="card-text">ID Touch</div>
         </div>
-
-        <div class="card">
-          <img src="./assets/img/google_ads.jpg" alt="" />
+        <div class="card js-card-service" data-file="animacion">
+          <img src="./assets/img/services/animacion.jpg" alt="Animación" />
+          <div class="card-text">Modelado 3D</div>
         </div>
-
-        <div class="card">
-          <img src="./assets/img/diseno_web.jpg" alt="" />
+        <div class="card js-card-service" data-file="crm">
+          <img src="./assets/img/services/crm.jpg" alt="CRM" />
+          <div class="card-text">CRM</div>
         </div>
-
-        <div class="card">
-          <img src="./assets/img/redes_sociales.jpg" alt="" />
+        <div class="card js-card-service" data-file="diseno_grafico">
+          <img src="./assets/img/services/diseno_grafico.jpg" alt="Diseño Gráfico" />
+          <div class="card-text">Diseñó Gráfico <br>Creación de Logotipo</div>
         </div>
-
-        <div class="card">
-          <img src="./assets/img/impresos.jpg" alt="" />
+        <div class="card js-card-service" data-file="diseno_web">
+          <img src="./assets/img/services/diseno_web.jpg" alt="Diseño Web" />
+          <div class="card-text">Diseno WEB <br>E-commer<br>Landing Page</div>
         </div>
-
-        <div class="card">
-          <img src="./assets/img/otros.jpg" alt="" />
+        <div class="card js-card-service" data-file="google_ads">
+          <img src="./assets/img/services/google_ads.jpg" alt="Google Ads" />
+          <div class="card-text">Google ADS</div>
+        </div>
+        <div class="card js-card-service" data-file="id_cards">
+          <img src="./assets/img/services/id_cards.jpg" alt="ID Cards" />
+          <div class="card-text">ID Cards <br>Invitaciones Digitales <br>Menus Digitales</div>
+        </div>
+        
+        <div class="card js-card-service" data-file="identidad">
+          <img src="./assets/img/services/identidad.jpg" alt="Identidad" />
+          <div class="card-text">Identidad corporativa</div>
+        </div>
+        <div class="card js-card-service" data-file="impresos">
+          <img src="./assets/img/services/impresos.jpg" alt="Impresos" />
+          <div class="card-text">Impresos y Promocionales <br>Branding <br>Uniformes</div>
+        </div>
+        <div class="card js-card-service" data-file="redes_sociales">
+          <img src="./assets/img/services/redes_sociales.jpg" alt="Redes Sociales" />
+          <div class="card-text">Redes Sociales <br>SEO y SEM</div>
         </div>
       </div>
     </div>
   </section>
+
   <!-- services ends -->
 
   <!-- contact us -->
   <section class="contact" id="contact">
-    <h1 class="heading">CONTACTANOS</h1>
-    <h3>Tus datos no serán compartidos</h3>
+    <h1 class="heading" data-i18n="contact.title">CONTACTANOS</h1>
+    <h3 data-i18n="contact.subtitle">Tus datos no serán compartidos</h3>
     <div class="box-container">
       <div class="content">
-        <p>
+        <p data-i18n="contact.description">
           marcamos la diferencia con nuestros competidores brindando un
           seguimiento puntual, ágil y oportuno
         </p>
@@ -158,10 +182,8 @@
             <li class="info-item">
               <i class="fas fa-calendar-alt icon"></i>
               <div class="info-text">
-                <span class="info-title">Horario:</span>
-                <span class="info-detail">
-                  Lunes a viernes de 8:00am a 6:00pm
-                </span>
+                <span class="info-title" data-i18n="contact.schedule">Horario:</span>
+                <span class="info-detail" data-i18n="contact.hours">Lunes a viernes de 8:00am a 6:00pm</span>
               </div>
             </li>
 
@@ -178,7 +200,7 @@
             <li class="info-item">
               <i class="fas fa-phone-alt icon"></i>
               <div class="info-text">
-                <span class="info-title">Teléfono:</span>
+                <span class="info-title" data-i18n="contact.phone">Teléfono:</span>
                 <span class="info-detail"> 55 3254 1027 </span>
               </div>
             </li>
@@ -186,24 +208,30 @@
         </div>
       </div>
       <div class="form-contact">
-        <h3 class="heading">Escribenos</h3>
+        <h3 class="heading" data-i18n="form.title">Escribenos</h3>
         <form action="">
           <div class="row">
-            <input type="text" placeholder="Nombre" />
-            <input type="text" placeholder="Telefono" />
+            <input type="text" data-i18n-placeholder="form.name" placeholder="Nombre" />
+            <input type="text" data-i18n-placeholder="form.phone" placeholder="Telefono" />
           </div>
-          <input type="text" placeholder="Email" />
+          <input type="text" data-i18n-placeholder="form.email" placeholder="Email" />
           <select name="" id="">
-            <option value="0">Selecciona un servicio</option>
+            <option value="0" data-i18n="form.select">
+              Selecciona un servicio
+            </option>
           </select>
-          <textarea name="" id="" placeholder="mensaje"></textarea>
+          <textarea name="" id="" data-i18n-placeholder="form.message" placeholder="mensaje"></textarea>
           <div class="row">
-            <button type="submit">cotiza ahora</button>
+            <button type="submit" data-i18n="form.submit">
+              cotiza ahora
+            </button>
           </div>
         </form>
       </div>
     </div>
-    <h3>Crezcamos juntos y llevemos el nombre de tu empresa a lo mas alto!</h3>
+    <h3 data-i18n="contact.footer">
+      Crezcamos juntos y llevemos el nombre de tu empresa a lo mas alto!
+    </h3>
   </section>
   <!-- contact us ends -->
 
@@ -214,10 +242,18 @@
     </div>
     <div class="share">
       <ul>
-        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram-square"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </li>
       </ul>
     </div>
   </footer>
@@ -225,20 +261,14 @@
 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-  <script>
-    const swiper = new Swiper(".home-slide", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      effect: "fade", // puedes usar "slide" o "fade"
-    });
-  </script>
+  <!-- swiper custom -->
+  <script src="./js/swiper-main.js"></script>
+
+  <!-- translate -->
+  <!-- <script src="./js/translate.js"></script> -->
+
+  <!-- main js -->
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
