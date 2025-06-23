@@ -1,231 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dimarketing</title>
 
-    <!-- normalize -->
-    <link rel="stylesheet" href="./css/normalize.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no">
 
-    <!-- font awesome -->
-    <link rel="stylesheet" href="./css/all.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
+  <title>Dimarketing</title>
 
-    <!-- custom css -->
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
+  <!-- normalize -->
+  <link rel="stylesheet" href="./css/normalize.css" />
 
-  <body>
-    <header class="header">
-      <a href="#"
-        ><img src="./assets/img/logo.png" alt="" width="100%" height="60"
-      /></a>
-      <nav class="navbar">
-        <ul>
-          <li><a href="#inicio">inicio</a></li>
-          <li><a href="#nosotros">nosotros</a></li>
-          <li><a href="#servicios">servicios</a></li>
-          <li><a href="#contacto">contacto</a></li>
-        </ul>
-      </nav>
-      <button class="btn-contact">contactanos 55 3254 1027</button>
-    </header>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <!-- home section -->
-    <section class="home" id="home">
-      <div class="swiper home-slide">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="./assets/img/banner_001.jpg" alt="" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="./assets/img/banner_002.jpg" alt="" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="./assets/img/banner_003.jpg" alt="" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="./assets/img/banner_004.jpg" alt="" />
-            </div>
+  <!-- custom css -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="./assets/img/logo.png" alt="">
+    </a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">inicio</a></li>
+        <li><a href="#about">nosotros</a></li>
+        <li><a href="#services">servicios</a></li>
+        <li><a href="#contact">contacto</a></li>
+      </ul>
+    </nav>
+    <button class="btn-contact">contactanos 55 3254 1027</button>
+  </header>
+
+  <!-- home section -->
+  <section class="home" id="home">
+    <div class="swiper home-slide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="image">
+            <picture>
+              <source media="(max-width: 768px)" srcset="./assets/img/banner_001_mobile.jpg" />
+              <img src="./assets/img/banner_001.jpg" alt="Banner 1" />
+            </picture>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-    <!-- home ends -->
-
-    <!-- about section -->
-    <section class="about" id="about">
-      <div class="box-container">
-        <div class="image">
-          <img src="./assets/img/nosotros_02.jpg" alt="" class="img-base" />
-          <img src="./assets/img/nosotros_01.jpg" alt="" class="img-top" />
+        <div class="swiper-slide">
+          <div class="image">
+            <picture>
+              <source media="(max-width: 768px)" srcset="./assets/img/banner_002_mobile.jpg" />
+              <img src="./assets/img/banner_002.jpg" alt="Banner 2" />
+            </picture>
+          </div>
         </div>
-
-        <div class="content">
-          <h1 class="heading">nosotros</h1>
-          <p>
-            Somos un equipo de profesionales especializados en MARKETING DIGITAL
-            basada en una metodologia Inbound Marketing con el objetivo de
-            entregar resultados positivos y autenticos para negocios, Pymes y
-            cualquier rubro empresarial.<br /><br />
-            Ofrecemos originalidad en cada uno de nuestros servicios
-            garantizando calidad y atencion.<br /><br />
-            Para destacar tu marca llevamos a cabo un analisis de mercado
-            integral que abarca todo el ciclo de vida de nuestros clientes
-            adptandonos a su sector y objetivos de negocio para ofrecer los
-            mayores beneficios a tu compania.
-          </p>
+        <div class="swiper-slide">
+          <div class="image">
+            <picture>
+              <source media="(max-width: 768px)" srcset="./assets/img/banner_003_mobile.jpg" />
+              <img src="./assets/img/banner_003.jpg" alt="Banner 3" />
+            </picture>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- about ends -->
-
-    <!-- services -->
-    <section class="services" id="services">
-      <div class="box-container">
-        <div class="content">
-          <h1 class="heading">servicios</h1>
-        </div>
-        <div class="cards-services">
-          <div class="card">
-            <span class="ribbon">NEW</span>
-            <img src="./assets/img/id_touch.jpg" alt="" />
-          </div>
-
-          <div class="card">
-            <img src="./assets/img/google_ads.jpg" alt="" />
-          </div>
-
-          <div class="card">
-            <img src="./assets/img/diseno_web.jpg" alt="" />
-          </div>
-
-          <div class="card">
-            <img src="./assets/img/redes_sociales.jpg" alt="" />
-          </div>
-
-          <div class="card">
-            <img src="./assets/img/impresos.jpg" alt="" />
-          </div>
-
-          <div class="card">
-            <img src="./assets/img/otros.jpg" alt="" />
+        <div class="swiper-slide">
+          <div class="image">
+            <picture>
+              <source media="(max-width: 768px)" srcset="./assets/img/banner_004_mobile.jpg" />
+              <img src="./assets/img/banner_004.jpg" alt="Banner 4" />
+            </picture>
           </div>
         </div>
       </div>
-    </section>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
 
-    <!-- services ends -->
+  <!-- home ends -->
 
-    <!-- contact us -->
-    <section class="contact" id="contact">
-      <h1 class="heading">CONTACTANOS</h1>
-      <h3>Tus datos no serán compartidos</h3>
-      <div class="box-container">
-        <div class="content">
-          <p>
-            marcamos la diferencia con nuestros competidores brindando un
-            seguimiento puntual, ágil y oportuno
-          </p>
-          <br /><br />
+  <!-- about section -->
+  <section class="about" id="about">
+    <div class="box-container">
+      <div class="image">
+        <img src="./assets/img/nosotros_02.jpg" alt="" class="img-base" />
+        <img src="./assets/img/nosotros_01.jpg" alt="" class="img-top" />
+      </div>
 
-          <div class="card">
-            <ul class="info-list">
-              <li class="info-item">
-                <i class="fas fa-calendar-alt icon"></i>
-                <div class="info-text">
-                  <span class="info-title">Horario:</span>
-                  <span class="info-detail">
-                    Lunes a viernes de 8:00am a 6:00pm
-                  </span>
-                </div>
-              </li>
+      <div class="content">
+        <h1 class="heading">nosotros</h1>
+        <p>
+          Somos un equipo de profesionales especializados en MARKETING DIGITAL
+          basada en una metodologia Inbound Marketing con el objetivo de
+          entregar resultados positivos y autenticos para negocios, Pymes y
+          cualquier rubro empresarial.<br /><br />
+          Ofrecemos originalidad en cada uno de nuestros servicios
+          garantizando calidad y atencion.<br /><br />
+          Para destacar tu marca llevamos a cabo un analisis de mercado
+          integral que abarca todo el ciclo de vida de nuestros clientes
+          adptandonos a su sector y objetivos de negocio para ofrecer los
+          mayores beneficios a tu compania.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- about ends -->
 
-              <li class="info-item">
-                <i class="fas fa-envelope icon"></i>
-                <div class="info-text">
-                  <span class="info-title">Email:</span>
-                  <span class="info-detail">
-                    d.contacto@dimarketing.com.mx
-                  </span>
-                </div>
-              </li>
-
-              <li class="info-item">
-                <i class="fas fa-phone-alt icon"></i>
-                <div class="info-text">
-                  <span class="info-title">Teléfono:</span>
-                  <span class="info-detail"> 55 3254 1027 </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+  <!-- services -->
+  <section class="services" id="services">
+    <div class="box-container">
+      <div class="content">
+        <h1 class="heading">servicios</h1>
+      </div>
+      <div class="cards-services">
+        <div class="card">
+          <span class="ribbon">NEW</span>
+          <img src="./assets/img/id_touch.jpg" alt="" />
         </div>
-        <div class="form-contact">
-          <h3 class="heading">Escribenos</h3>
-          <form action="">
-            <div class="row">
-              <input type="text" placeholder="Nombre" />
-              <input type="text" placeholder="Telefono" />
-            </div>
-            <input type="text" placeholder="Email" />
-            <select name="" id="">
-              <option value="0">Selecciona un servicio</option>
-            </select>
-            <textarea name="" id="" placeholder="mensaje"></textarea>
-            <div class="row">
-              <button type="submit">cotiza ahora</button>
-            </div>
-          </form>
+
+        <div class="card">
+          <img src="./assets/img/google_ads.jpg" alt="" />
+        </div>
+
+        <div class="card">
+          <img src="./assets/img/diseno_web.jpg" alt="" />
+        </div>
+
+        <div class="card">
+          <img src="./assets/img/redes_sociales.jpg" alt="" />
+        </div>
+
+        <div class="card">
+          <img src="./assets/img/impresos.jpg" alt="" />
+        </div>
+
+        <div class="card">
+          <img src="./assets/img/otros.jpg" alt="" />
         </div>
       </div>
-        <h3>Crezcamos juntos y llevemos el nombre de tu empresa a lo mas alto!</h3>
-    </section>
-    <!-- contact us ends -->
+    </div>
+  </section>
+  <!-- services ends -->
 
-    <!-- footer -->
-     <footer class="footer">
-          <div class="credit">
-            <p>Created By <span>Dimarketing</span> | 2025 All rights reserved.</p>
+  <!-- contact us -->
+  <section class="contact" id="contact">
+    <h1 class="heading">CONTACTANOS</h1>
+    <h3>Tus datos no serán compartidos</h3>
+    <div class="box-container">
+      <div class="content">
+        <p>
+          marcamos la diferencia con nuestros competidores brindando un
+          seguimiento puntual, ágil y oportuno
+        </p>
+        <br /><br />
+
+        <div class="card">
+          <ul class="info-list">
+            <li class="info-item">
+              <i class="fas fa-calendar-alt icon"></i>
+              <div class="info-text">
+                <span class="info-title">Horario:</span>
+                <span class="info-detail">
+                  Lunes a viernes de 8:00am a 6:00pm
+                </span>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <i class="fas fa-envelope icon"></i>
+              <div class="info-text">
+                <span class="info-title">Email:</span>
+                <span class="info-detail">
+                  d.contacto@dimarketing.com.mx
+                </span>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <i class="fas fa-phone-alt icon"></i>
+              <div class="info-text">
+                <span class="info-title">Teléfono:</span>
+                <span class="info-detail"> 55 3254 1027 </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-contact">
+        <h3 class="heading">Escribenos</h3>
+        <form action="">
+          <div class="row">
+            <input type="text" placeholder="Nombre" />
+            <input type="text" placeholder="Telefono" />
           </div>
-          <div class="share">
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-              <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-            </ul>
+          <input type="text" placeholder="Email" />
+          <select name="" id="">
+            <option value="0">Selecciona un servicio</option>
+          </select>
+          <textarea name="" id="" placeholder="mensaje"></textarea>
+          <div class="row">
+            <button type="submit">cotiza ahora</button>
           </div>
-     </footer>
-    <!-- footer ends -->
+        </form>
+      </div>
+    </div>
+    <h3>Crezcamos juntos y llevemos el nombre de tu empresa a lo mas alto!</h3>
+  </section>
+  <!-- contact us ends -->
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <!-- footer -->
+  <footer class="footer">
+    <div class="credit">
+      <p>Created By <span>Dimarketing</span> | 2025 All rights reserved.</p>
+    </div>
+    <div class="share">
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- footer ends -->
 
-    <script>
-      const swiper = new Swiper(".home-slide", {
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        effect: "fade", // puedes usar "slide" o "fade"
-      });
-    </script>
-  </body>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper(".home-slide", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      effect: "fade", // puedes usar "slide" o "fade"
+    });
+  </script>
+</body>
+
 </html>
