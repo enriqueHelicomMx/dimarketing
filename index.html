@@ -32,13 +32,28 @@
         <li><a href="#contact" data-i18n="nav.contact">contacto</a></li>
       </ul>
     </nav>
-    <div class="language-selector">
-      <button onclick="setLanguage('es')">Español</button>
-      <button onclick="setLanguage('en')">English</button>
+    <div class="header-right">
+      <div class="language-selector">
+        <button id="btn-es" aria-label="Español">
+          <span class="flag-icon">
+            <img src="./assets/img/icons/mx.svg" alt="Español"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+            <span class="emoji-fallback">🇲🇽</span>
+          </span>
+        </button>
+        <button id="btn-en" aria-label="English">
+          <span class="flag-icon">
+            <img src="./assets/img/icons/us.svg" alt="English"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+            <span class="emoji-fallback">🇺🇸</span>
+          </span>
+        </button>
+      </div>
+      <button class="btn-contact" data-i18n="btn.contact">
+        <i class="fas fa-phone-alt icon"></i> +52 55 3254 1027
+      </button>
     </div>
-    <button class="btn-contact" data-i18n="btn.contact">
-      contactanos 55 3254 1027
-    </button>
+
   </header>
 
   <!-- home section -->
@@ -94,18 +109,15 @@
 
       <div class="content">
         <h1 class="heading" data-i18n="about.title">nosotros</h1>
-        <p data-i18n="about.text">
-          Somos un equipo de profesionales especializados en MARKETING DIGITAL
-          basada en una metodologia Inbound Marketing con el objetivo de
-          entregar resultados positivos y autenticos para negocios, Pymes y
-          cualquier rubro empresarial.<br /><br />
-          Ofrecemos originalidad en cada uno de nuestros servicios
-          garantizando calidad y atencion.<br /><br />
-          Para destacar tu marca llevamos a cabo un analisis de mercado
-          integral que abarca todo el ciclo de vida de nuestros clientes
-          adptandonos a su sector y objetivos de negocio para ofrecer los
-          mayores beneficios a tu compania.
-        </p>
+        <p data-i18n="about.text">Somos un equipo de profesionales especializados en <strong>MARKETING DIGITAL</strong>
+          basada en una
+          metodolog&iacute;a Inbound Marketing con el objetivo de entregar resultados positivos y aut&eacute;nticos para
+          negocios, Pymes y cualquier rubro empresarial.<br><br>Ofrecemos originalidad en cada uno de nuestros servicios
+          garantizando <strong>calidad&nbsp;</strong>y <strong>atenci&oacute;n.</strong><br><br>&nbsp;Para destacar tu
+          marca
+          llevamos a cabo un an&aacute;lisis de mercado integral que abarca todo el ciclo de vida de nuestros clientes
+          adapt&aacute;ndonos a su sector y objetivos de negocio para ofrecer los mayores beneficios a tu
+          compa&ntilde;&iacute;a.</p>
       </div>
     </div>
   </section>
@@ -113,52 +125,260 @@
 
   <!-- services -->
   <section class="services" id="services">
-    <h1 class="heading" data-i18n="services.title">Servicios</h1>
+
+    <h1 class="heading" data-i18n="servicios.title">Servicios</h1>
+
     <div class="box-container">
-      <div class="content content-services"></div>
+
+      <div class="content content-services" style="position: relative;">
+
+        <!-- id touch -->
+        <div class="services-item" data-file="id_touch">
+          <h3 data-i18n="servicios.id_touch.0.titulo">ID TOUCH</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.id_touch.0.descripcion">Comparte con un solo toque toda tu información al instante,
+              además controla qué datos deseas compartir manteniéndolos protegidos.<br><br>¡Actualiza la información
+              cuando lo necesites!<br><br>Utiliza esta <strong>Nueva Tecnología</strong> de Comunicación en:</p>
+            <ul data-i18n="servicios.id_touch.0.lista">
+              <li>
+                <p>Satisfacción al Cliente</p>
+              </li>
+              <li>
+                <p>Eventos Corporativos</p>
+              </li>
+              <li>
+                <p>Museos</p>
+              </li>
+              <li>
+                <p>Hotelería</p>
+              </li>
+              <li>
+                <p>Networking</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- google ads -->
+        <div class="services-item" data-file="google_ads">
+          <h3 data-i18n="servicios.google_ads.0.titulo">Google ADS</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.google_ads.0.descripcion">Anuncia tus productos y servicios con anuncios pagados a
+              través de publicidad digital en esta plataforma.</p>
+          </div>
+        </div>
+
+        <!-- web ecommer landing page -->
+        <div class="services-item" data-file="diseno_web">
+          <h3 data-i18n="servicios.diseno_web.0.titulo">Diseño Web</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.diseno_web.0.descripcion">Diseñamos la apariencia, estructura y funcionalidad de tu
+              sitio web.</p>
+          </div>
+
+          <h3 data-i18n="servicios.diseno_web.1.titulo">E-commerce</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.diseno_web.1.descripcion">Vende tus productos o servicios a través de internet.</p>
+          </div>
+
+          <h3 data-i18n="servicios.diseno_web.2.titulo">Landing Page</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.diseno_web.2.descripcion">Diseñada para convertir a los visitantes en clientes
+              potenciales a través de un clic en un anuncio o enlace de campañas en Google Ads.</p>
+          </div>
+        </div>
+
+        <!-- redes sociales -->
+        <div class="services-item" data-file="redes_sociales">
+          <h3 data-i18n="servicios.redes_sociales.0.titulo">Redes Sociales SEO</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.redes_sociales.0.descripcion">Creamos estrategias para conectar con la audiencia,
+              generar interacción, construir una comunidad en torno a tu negocio, promocionando marcas, productos y
+              servicios.</p>
+          </div>
+
+          <h3 data-i18n="servicios.redes_sociales.1.titulo">Redes Sociales SEM</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.redes_sociales.1.descripcion">Aumentamos el alcance de tus productos y servicios a
+              través de campañas pagadas mostrando anuncios a usuarios específicos que están interesados en tu negocio.
+            </p>
+          </div>
+        </div>
+
+        <!-- impresiones -->
+        <div class="services-item" data-file="impresos">
+          <h3 data-i18n="servicios.impresos.0.titulo">Impresos y Promociones</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.impresos.0.descripcion">Da a conocer tus productos y promueve tus servicios a través
+              de folletos, carteles, productos promocionales como tazas, plumas, etc.</p>
+          </div>
+
+          <h3 data-i18n="servicios.impresos.1.titulo">Branding</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.impresos.1.descripcion">Distingue tu marca en el entorno digital realizando una
+              gestión creativa para tu negocio y sé la diferencia con tu competencia posicionándote en la mente de tu
+              público.</p>
+          </div>
+
+          <h3 data-i18n="servicios.impresos.2.titulo">Uniformes</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.impresos.2.descripcion">Representa a tu empresa en diferentes canales de
+              comunicación creando, fortaleciendo la imagen de marca generando confianza en tus clientes y empleados.
+            </p>
+          </div>
+        </div>
+
+        <!-- animacion 3d -->
+        <div class="services-item" data-file="animacion">
+          <h3 data-i18n="servicios.animacion.0.titulo">Modelado 3D</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.animacion.0.descripcion">Creamos representaciones digitales tridimensionales de
+              objetos, productos y espacios para promocionar o visualizar tu negocio.</p>
+          </div>
+        </div>
+
+        <!-- identidad -->
+        <div class="services-item" data-file="identidad">
+          <h3 data-i18n="servicios.identidad.0.titulo">Identidad Corporativa</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.identidad.0.descripcion1">Define como tu empresa se presenta al mundo tanto
+              internamente como externamente.<br><br> Elementos clave que incluimos para generar tu MARCA:</p>
+
+            <div class="box-rows" data-i18n="servicios.identidad.0.lista1">
+              <ul>
+                <li>Logotipo</li>
+                <li>Colores</li>
+                <li>Tipografía</li>
+                <li>Identidad Visual</li>
+                <li>Misión</li>
+              </ul>
+              <ul>
+                <li>Visión</li>
+                <li>Manuales Corporativos</li>
+                <li>Cultura Empresarial</li>
+                <li>Firmas Institucionales</li>
+              </ul>
+            </div>
+
+            <p data-i18n="servicios.identidad.0.descripcion2">Material impreso como:</p>
+
+            <ul data-i18n="servicios.identidad.0.lista2">
+              <li>Papelería corporativa</li>
+              <li>Publicidad BTL</li>
+              <li>Tarjetas de presentación</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- id cards -->
+        <div class="services-item" data-file="id_cards">
+          <h3 data-i18n="servicios.id_cards.0.titulo">ID Cards</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.id_cards.0.descripcion">Invierte en ellas y utilízalas para la identificación,
+              presentación, fidelización e incentiva la verificación de identidad en diferentes contextos.</p>
+          </div>
+
+          <h3 data-i18n="servicios.id_cards.1.titulo">Invitaciones Digitales</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.id_cards.1.descripcion">Sé más moderno y original e invita a tus amigos, familiares
+              o colegas a cualquier evento especial.</p>
+          </div>
+
+          <h3 data-i18n="servicios.id_cards.2.titulo">Invitaciones Digitales</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.id_cards.2.descripcion">Facilita a tus clientes la consulta, el orden de tus
+              productos o servicios de manera rápida y accesible desde sus dispositivos móviles o computadoras.</p>
+          </div>
+        </div>
+
+        <!-- disenio grafico -->
+        <div class="services-item" data-file="diseno_grafico">
+          <h3 data-i18n="servicios.diseno_grafico.0.titulo">Diseño Gráfico</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.diseno_grafico.0.descripcion">Destaca tu marca en línea con diseños visuales
+              impactantes que promocionen tus productos o servicios de manera efectiva y atractiva.</p>
+          </div>
+
+          <h3 data-i18n="servicios.diseno_grafico.1.titulo">Creación de Logotipo</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.diseno_grafico.1.descripcion">Destaca tu marca en línea con diseños visuales
+              impactantes que promocionen tus productos o servicios de manera efectiva y atractiva.</p>
+          </div>
+        </div>
+
+        <!-- crm -->
+        <div class="services-item" data-file="crm">
+          <h3 data-i18n="servicios.crm.0.titulo">CRM</h3>
+          <div class="description__services">
+            <p data-i18n="servicios.crm.0.descripcion">Gestiona las relaciones con tus clientes de manera eficiente.</p>
+          </div>
+        </div>
+
+
+      </div>
+
       <div class="cards-services">
-        <div class="card js-card-service" data-file="id_touch">
+
+        <div class="card card-item__services" data-file="id_touch">
           <span class="ribbon">NEW</span>
           <img src="./assets/img/services/id_touch.jpg" alt="ID Touch" />
-          <div class="card-text">ID Touch</div>
+          <div class="card-text" data-i18n="card.id_touch">ID Touch</div>
         </div>
-        <div class="card js-card-service" data-file="animacion">
-          <img src="./assets/img/services/animacion.jpg" alt="Animación" />
-          <div class="card-text">Modelado 3D</div>
-        </div>
-        <div class="card js-card-service" data-file="crm">
-          <img src="./assets/img/services/crm.jpg" alt="CRM" />
-          <div class="card-text">CRM</div>
-        </div>
-        <div class="card js-card-service" data-file="diseno_grafico">
-          <img src="./assets/img/services/diseno_grafico.jpg" alt="Diseño Gráfico" />
-          <div class="card-text">Diseñó Gráfico <br>Creación de Logotipo</div>
-        </div>
-        <div class="card js-card-service" data-file="diseno_web">
-          <img src="./assets/img/services/diseno_web.jpg" alt="Diseño Web" />
-          <div class="card-text">Diseno WEB <br>E-commer<br>Landing Page</div>
-        </div>
-        <div class="card js-card-service" data-file="google_ads">
+
+        <div class="card card-item__services" data-file="google_ads">
           <img src="./assets/img/services/google_ads.jpg" alt="Google Ads" />
-          <div class="card-text">Google ADS</div>
+          <div class="card-text" data-i18n="card.google_ads">Google ADS</div>
         </div>
-        <div class="card js-card-service" data-file="id_cards">
-          <img src="./assets/img/services/id_cards.jpg" alt="ID Cards" />
-          <div class="card-text">ID Cards <br>Invitaciones Digitales <br>Menus Digitales</div>
-        </div>
-        
-        <div class="card js-card-service" data-file="identidad">
-          <img src="./assets/img/services/identidad.jpg" alt="Identidad" />
-          <div class="card-text">Identidad corporativa</div>
-        </div>
-        <div class="card js-card-service" data-file="impresos">
-          <img src="./assets/img/services/impresos.jpg" alt="Impresos" />
-          <div class="card-text">Impresos y Promocionales <br>Branding <br>Uniformes</div>
-        </div>
-        <div class="card js-card-service" data-file="redes_sociales">
+
+        <div class="card card-item__services" data-file="redes_sociales">
           <img src="./assets/img/services/redes_sociales.jpg" alt="Redes Sociales" />
-          <div class="card-text">Redes Sociales <br>SEO y SEM</div>
+          <div class="card-text" data-i18n="card.redes_sociales">Redes Sociales <br />SEO y SEM</div>
         </div>
+
+        <div class="card card-item__services" data-file="diseno_web">
+          <img src="./assets/img/services/diseno_web.jpg" alt="Diseño Web" />
+          <div class="card-text" data-i18n="card.diseno_web">
+            Diseno WEB <br />E-commer<br />Landing Page
+          </div>
+        </div>
+
+        <div class="card card-item__services" data-file="impresos">
+          <img src="./assets/img/services/impresos.jpg" alt="Impresos" />
+          <div class="card-text" data-i18n="card.impresos">
+            Impresos y Promocionales <br />Branding <br />Uniformes
+          </div>
+        </div>
+
+        <div class="card card-item__services" data-file="id_cards">
+          <img src="./assets/img/services/id_cards.jpg" alt="ID Cards" />
+          <div class="card-text" data-i18n="card.id_cards">
+            ID Cards <br />Invitaciones Digitales <br />Menus Digitales
+          </div>
+        </div>
+
+        <div class="card card-item__services" data-file="identidad">
+          <img src="./assets/img/services/identidad.jpg" alt="Identidad" />
+          <div class="card-text" data-i18n="card.identidad">Identidad corporativa</div>
+        </div>
+
+        <div class="card card-item__services" data-file="diseno_grafico">
+          <img src="./assets/img/services/diseno_grafico.jpg" alt="Diseño Gráfico" />
+          <div class="card-text" data-i18n="card.diseno_grafico">
+            Diseñó Gráfico <br />Creación de Logotipo
+          </div>
+        </div>
+
+        <div class="card card-item__services" data-file="crm">
+          <img src="./assets/img/services/crm.jpg" alt="CRM" />
+          <div class="card-text" data-i18n="card.crm">CRM</div>
+        </div>
+
+        <div class="card card-item__services" data-file="animacion">
+          <img src="./assets/img/services/animacion.jpg" alt="Animación" />
+          <div class="card-text" data-i18n="card.animacion">Modelado 3D</div>
+        </div>
+
+
       </div>
     </div>
   </section>
@@ -167,7 +387,7 @@
 
   <!-- contact us -->
   <section class="contact" id="contact">
-    <h1 class="heading" data-i18n="contact.title">CONTACTANOS</h1>
+    <h1 class="heading" data-i18n="contact.title">CONTÁCTENOS</h1>
     <h3 data-i18n="contact.subtitle">Tus datos no serán compartidos</h3>
     <div class="box-container">
       <div class="content">
@@ -211,22 +431,23 @@
         <h3 class="heading" data-i18n="form.title">Escribenos</h3>
         <form action="">
           <div class="row">
-            <input type="text" data-i18n-placeholder="form.name" placeholder="Nombre" />
-            <input type="text" data-i18n-placeholder="form.phone" placeholder="Telefono" />
+            <input type="text" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" />
+            <input type="text" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" />
           </div>
-          <input type="text" data-i18n-placeholder="form.email" placeholder="Email" />
-          <select name="" id="">
-            <option value="0" data-i18n="form.select">
-              Selecciona un servicio
-            </option>
+
+          <input type="text" name="email" placeholder="Email" data-i18n-placeholder="form.email" />
+
+          <select name="service" id="service">
+            <option value="0" data-i18n="form.select">Selecciona un servicio</option>
           </select>
-          <textarea name="" id="" data-i18n-placeholder="form.message" placeholder="mensaje"></textarea>
+
+          <textarea name="message" placeholder="Mensaje" data-i18n-placeholder="form.message"></textarea>
+
           <div class="row">
-            <button type="submit" data-i18n="form.submit">
-              cotiza ahora
-            </button>
+            <button type="submit" data-i18n="form.submit">Cotiza ahora</button>
           </div>
         </form>
+
       </div>
     </div>
     <h3 data-i18n="contact.footer">
@@ -234,6 +455,12 @@
     </h3>
   </section>
   <!-- contact us ends -->
+
+  <div class="call">
+    <a href="#">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 
   <!-- footer -->
   <footer class="footer">
@@ -265,7 +492,7 @@
   <script src="./js/swiper-main.js"></script>
 
   <!-- translate -->
-  <!-- <script src="./js/translate.js"></script> -->
+  <script src="./js/translate.js"></script>
 
   <!-- main js -->
   <script src="./js/main.js"></script>

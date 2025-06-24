@@ -1,24 +1,107 @@
 {
-  "nav.home": "home",
-  "nav.about": "about",
-  "nav.services": "services",
-  "nav.contact": "contact",
-  "btn.contact": "contact us +52 55 3254 1027",
-  "about.title": "about us",
-   "about.text": "We are a team of professionals specialized in <strong>DIGITAL MARKETING</strong>, using an Inbound Marketing methodology to deliver real and positive results for businesses, SMEs, and all types of companies.<br><br>We bring originality to every service we offer, ensuring high quality and personalized attention.<br><br>To elevate your brand, we carry out a comprehensive market analysis covering the entire customer lifecycle, adapting to your industry and business objectives to deliver the greatest value to your company.",
-  "services.title": "services",
+  "nav.home": "Home",
+  "nav.about": "About Us",
+  "nav.services": "Services",
+  "nav.contact": "Contact",
+  "about.title": "About Us",
+  "about.text": "We are a team of professionals specialized in DIGITAL MARKETING using an Inbound Marketing methodology, to deliver real positive results for businesses, SMEs, and any other type of business.<br>We bring originality to every service we offer, ensuring top quality and personalized attention.<br><br>To enhance your brand, we conduct an in-depth market analysis that covers the entire customer's lifecycle, adapting to your industry and business goals to deliver maximum value to your company.",
+  
+  "servicios.id_touch.0.titulo": "ID TOUCH",
+  "servicios.id_touch.0.descripcion": "Share all your information instantly with just one tap, and control what data you want to share while keeping it protected. <br><br> Update your information whenever you need! <br><br> Use this new communication technology at:",
+  "servicios.id_touch.0.lista": [
+    "Customer Satisfaction",
+    "Corporate Events",
+    "Museums",
+    "Hospitality",
+    "Networking"
+  ],
+  "servicios.title":"services",
+  "servicios.google_ads.0.titulo": "Google ADS",
+  "servicios.google_ads.0.descripcion": "Promote your products and services with paid ads through digital advertising on this platform",
+
+  "servicios.diseno_web.0.titulo": "Web Design",
+  "servicios.diseno_web.0.descripcion": "We design the look, structure, and functionality of your website.",
+  "servicios.diseno_web.1.titulo": "E-commerce",
+  "servicios.diseno_web.1.descripcion": "Sell your products or services online",
+  "servicios.diseno_web.2.titulo": "Landing Page",
+  "servicios.diseno_web.2.descripcion": "Designed to convert visitors into potencial leads through a click on an ad or campaign link in Google Ads",
+
+  "servicios.redes_sociales.0.titulo": "Social Media SEO",
+  "servicios.redes_sociales.0.descripcion": "We create strategies to connect with your audience, generate engagement, and build a community around your business by promoting brands, products, and services",
+  "servicios.redes_sociales.1.titulo": "Social Media SEM",
+  "servicios.redes_sociales.1.descripcion": "We increase the reach of your products and services through paid campaigns by showing ads to specific users who are interested in your business.",
+
+  "servicios.impresos.0.titulo": "Printed and Promotional",
+  "servicios.impresos.0.descripcion": "Showcase your products and promote your services through brochures, posters, and promotional items like mugs, pens, and more.",
+  "servicios.impresos.1.titulo": "Branding",
+  "servicios.impresos.1.descripcion": "Make your brand stand out in the digital world with creative management for your business, and set yourself apart from the competition by positioning your brand in the minds of your audience",
+  "servicios.impresos.2.titulo": "Uniforms",
+  "servicios.impresos.2.descripcion": "Represents your company across different communication channels by creating and strengthening your brand image, building trust with your customers and employees.",
+
+  "servicios.animacion.0.titulo": "3D Modeling",
+  "servicios.animacion.0.descripcion": "We create three-dimensional representations of objects, products, and spaces to promote or showcase your business",
+
+  "servicios.identidad.0.titulo": "Corporate Identity",
+  "servicios.identidad.0.descripcion1": "Define how your company presents itself to the world, both internally and externally",
+  "servicios.identidad.0.lista1": [
+    "Logo",
+    "Colors",
+    "Typography",
+    "Visual Identity",
+    "Mission",
+    "Vision",
+    "Corporate manuals",
+    "Company culture",
+    "Institucional signature"
+  ],
+  "servicios.identidad.0.descripcion2": "Printed materials such as:",
+  "servicios.identidad.0.lista2": [
+    "Corporate stationery",
+    "BTL adverting",
+    "Business cards"
+  ],
+
+  "servicios.id_cards.0.titulo": "ID Cards",
+  "servicios.id_cards.0.descripcion": "Invest in them and use them for identification, branding, customer loyalty, and to encourage identity verification in various contexts.",
+  "servicios.id_cards.1.titulo": "Digital Invitations",
+  "servicios.id_cards.1.descripcion": "Be more modern and unique, and invite your friends, family, or colleagues to any special event.",
+  "servicios.id_cards.2.titulo": "Digital menu's",
+  "servicios.id_cards.2.descripcion": "Make it easy for your customers to browse and order your products or services quickly and conveniently from their mobile devices or computers",
+
+  "servicios.diseno_grafico.0.titulo": "Graphic Design",
+  "servicios.diseno_grafico.0.descripcion": "Make your brand stand out line with stunning visual designs that effectively and attractively promote your products or services",
+  "servicios.diseno_grafico.1.titulo": "Logo Creation",
+  "servicios.diseno_grafico.1.descripcion": "Define your company's identity and make sure customers recognize you instantly.",
+
+  "servicios.crm.0.titulo": "CRM",
+  "servicios.crm.0.descripcion": "Manage your customer relationships efficiently.",
+
+
+    "card.id_touch": "ID Touch",
+  "card.google_ads": "Google ADS",
+  "card.redes_sociales": "Social Media <br />SEO and SEM",
+  "card.diseno_web": "Web Design <br />E-commerce<br />Landing Page",
+  "card.impresos": "Print and Promotions <br />Branding <br />Uniforms",
+  "card.id_cards": "ID Cards <br />Digital Invitations <br />Digital Menus",
+  "card.identidad": "Corporate Identity",
+  "card.diseno_grafico": "Graphic Design <br />Logo Creation",
+  "card.crm": "CRM",
+  "card.animacion": "3D Modeling",
+
   "contact.title": "CONTACT US",
   "contact.subtitle": "Your data will not be shared",
-  "contact.description": "We stand out from our competitors by offering precise, fast, and timely follow-up.",
+  "contact.description": "We stand out from competitors by providing timely, agile, and accurate follow-up",
   "contact.schedule": "Schedule:",
   "contact.hours": "Monday to Friday from 8:00am to 6:00pm",
   "contact.phone": "Phone:",
+
   "form.title": "Write to us",
   "form.name": "Name",
   "form.phone": "Phone",
   "form.email": "Email",
   "form.select": "Select a service",
   "form.message": "Message",
-  "form.submit": "Get a quote",
+  "form.submit": "Get a Quote",
+
   "contact.footer": "Let's grow together and take your company to the top!"
 }

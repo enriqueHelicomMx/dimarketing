@@ -1,100 +1,125 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang");
-  const browserLang = navigator.language.slice(0, 2);
-  const langToUse = savedLang || (["es", "en"].includes(browserLang) ? browserLang : "es");
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".cards-services");
+  const serviceItems = document.querySelectorAll(".services-item");
+  const cards = Array.from(document.querySelectorAll(".card-item__services"));
+  let currentIndex = 0;
+  let visibleCards = getVisibleCards();
+  let autoplay;
 
-  setLanguage(langToUse);
-  initServiceCards();
-});
+  // Clonar los primeros elementos para efecto infinito
+  const clonedCards = cards.slice(0, visibleCards).map(card => card.cloneNode(true));
+  clonedCards.forEach(card => container.appendChild(card));
+  const allCards = [...cards, ...clonedCards];
 
-// 🔁 Botones para cambiar idioma manualmente
-document.querySelectorAll("[data-set-lang]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const newLang = btn.getAttribute("data-set-lang");
-    localStorage.setItem("lang", newLang);
-    setLanguage(newLang);
-    initServiceCards(); // recarga contenido de servicios con el nuevo idioma
-  });
-});
-
-// 🌐 Cargar traducciones y aplicar
-async function setLanguage(lang) {
-  try {
-    const res = await fetch(`../translations/${lang}.json`);
-    const translations = await res.json();
-
-    // Textos
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[key]) el.innerHTML = translations[key];
-    });
-
-    // Placeholders
-    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-      const key = el.getAttribute("data-i18n-placeholder");
-      if (translations[key]) el.placeholder = translations[key];
-    });
-
-    updateHomeBanners(lang);
-  } catch (e) {
-    console.error("Error cargando idioma", e);
+  function getVisibleCards() {
+    return window.innerWidth <= 768 ? 1 : 4;
   }
-}
 
-// 📸 Actualizar banners por idioma
-function updateHomeBanners(lang) {
-  const basePath = lang === "en" ? "../assets/img/img_en" : "../assets/img/img_es";
-  const banners = ["banner_001", "banner_002", "banner_003", "banner_004"];
+  function showService(fileName) {
+    const currentActive = document.querySelector(".services-item.active");
+    const nextActive = [...serviceItems].find(item => item.dataset.file === fileName);
 
-  document.querySelectorAll(".swiper-slide").forEach((slide, i) => {
-    if (i >= banners.length) return;
+    if (!nextActive || currentActive === nextActive) return;
 
-    const picture = slide.querySelector("picture");
-    const source = picture.querySelector("source");
-    const img = picture.querySelector("img");
-    const name = banners[i];
+    if (currentActive) {
+      currentActive.classList.remove("active");
+      currentActive.classList.add("fade-out");
 
-    source.srcset = `${basePath}/${name}_mobile.jpg`;
-    img.src = `${basePath}/${name}.jpg`;
-    img.alt = `Banner ${i + 1}`;
-  });
-}
+      setTimeout(() => {
+        currentActive.classList.remove("fade-out");
+        nextActive.classList.add("active");
+      }, 300);
+    } else {
+      nextActive.classList.add("active");
+    }
+  }
 
-// 🧩 Servicios dinámicos según idioma
-function initServiceCards() {
-  const cards = document.querySelectorAll(".js-card-service");
-  const description = document.querySelector(".content-services");
+  function showCards() {
+    visibleCards = getVisibleCards(); // recalcular por si cambió
+    allCards.forEach((card, index) => {
+      if (index >= currentIndex && index < currentIndex + visibleCards) {
+        card.style.display = 'block';
+        card.style.opacity = '0';
+        card.style.transform = 'translateX(10px)';
+        requestAnimationFrame(() => {
+          card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateX(0)';
+        });
+      } else {
+        card.style.display = 'none';
+      }
+    });
 
-  if (!cards.length || !description) return;
+    // Mostrar la descripción del primero visible
+    const visibleCard = allCards[currentIndex];
+    if (visibleCard) {
+      const fileName = visibleCard.dataset.file;
+      showService(fileName);
+    }
+  }
 
-  async function loadServiceContent(fileName) {
-    const activeLang = localStorage.getItem("lang") || "es";
-    const filePath = `../assets/services/${activeLang}/${fileName}.html`;
+  function nextCards() {
+    currentIndex++;
 
-    try {
-      const response = await fetch(filePath);
-      if (!response.ok) throw new Error("Error al cargar contenido");
-
-      const html = await response.text();
-      description.innerHTML = html;
-    } catch (error) {
-      description.innerHTML = "<p>Error cargando el contenido.</p>";
-      console.error(error);
+    if (currentIndex >= cards.length) {
+      setTimeout(() => {
+        currentIndex = 0;
+        container.style.transition = 'none';
+        showCards();
+        void container.offsetWidth; // reflow
+        container.style.transition = '';
+      }, 500);
     }
 
-    cards.forEach((el) => {
-      el.classList.toggle("active", el.dataset.file === fileName);
-    });
+    animateTransition("next");
+    showCards();
   }
 
-  // Cargar el contenido inicial (primera card)
-  const activeFile = document.querySelector(".js-card-service.active")?.dataset.file || cards[0].dataset.file;
-  loadServiceContent(activeFile);
+  function animateTransition(direction) {
+    const visible = container.querySelectorAll(".card-item__services");
+    visible.forEach(card => {
+      card.style.opacity = "0.7";
+      card.style.transform = direction === "next" ? "translateX(-20px)" : "translateX(20px)";
+    });
 
-  // Agregar eventos click
-  cards.forEach((card) => {
+    setTimeout(() => {
+      visible.forEach(card => {
+        card.style.opacity = "1";
+        card.style.transform = "translateX(0)";
+        card.style.transition = "all 0.3s ease";
+      });
+    }, 200);
+  }
+
+  // Click para mostrar descripción
+  allCards.forEach(card => {
     card.addEventListener("click", () => {
-      loadServiceContent(card.dataset.file);
+      const fileName = card.dataset.file;
+      showService(fileName);
     });
   });
-}
+
+  // Mostrar por defecto
+  showCards();
+
+  // Autoplay
+  function startAutoplay() {
+    autoplay = setInterval(nextCards, 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplay);
+  }
+
+  startAutoplay();
+
+  container.addEventListener("mouseenter", stopAutoplay);
+  container.addEventListener("mouseleave", startAutoplay);
+
+  // Detectar resize para adaptar visibleCards
+  window.addEventListener("resize", () => {
+    visibleCards = getVisibleCards();
+    showCards();
+  });
+});

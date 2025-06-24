@@ -37,6 +37,12 @@
 .fa-linkedin-in:before {
   content: "\f0e1";
 }
+.fa-whatsapp:before {
+  content: "\f232";
+}
+.fa-whatsapp-square:before {
+  content: "\f40c";
+}
 @font-face {
   font-family: "Font Awesome 5 Brands";
   font-style: normal;

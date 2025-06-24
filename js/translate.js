@@ -1,67 +1,121 @@
-async function setLanguage(lang) {
-  try {
-    const res = await fetch(`../translations/${lang}.json`);
-    const translations = await res.json();
+const originalTexts = {};
 
-    // Cambia texto con HTML
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[key]) {
-        el.innerHTML = translations[key];
-      }
-    });
+function switchHomeImages(lang) {
+  const isEN = lang === 'en';
 
-    // Cambia placeholders
-    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-      const key = el.getAttribute("data-i18n-placeholder");
-      if (translations[key]) {
-        el.placeholder = translations[key];
-      }
-    });
-
-    // ✅ Cambiar imágenes del banner por idioma
-    updateHomeBanners(lang);
-
-    localStorage.setItem("lang", lang);
-  } catch (e) {
-    console.error("Error cargando idioma", e);
-  }
-}
-
-function updateHomeBanners(lang) {
-  const basePath =
-    lang === "en" ? "../assets/img/img_en" : "../assets/img/img_es";
-
-  const banners = ["banner_001", "banner_002", "banner_003", "banner_004"];
-
-  const slides = document.querySelectorAll(".swiper-slide");
-  slides.forEach((slide, i) => {
-    if (i >= banners.length) return; // Salta si no hay banner correspondiente
-
-    const picture = slide.querySelector("picture");
+  document.querySelectorAll("picture").forEach((picture) => {
     const source = picture.querySelector("source");
     const img = picture.querySelector("img");
-    const name = banners[i];
 
-    source.srcset = `${basePath}/${name}_mobile.jpg`;
-    console.log(source.srcset);
-    img.src = `${basePath}/${name}.jpg`;
-    img.alt = `Banner ${i + 1}`;
+    if (!img || !img.src) return;
+
+    const baseName = img.src.match(/banner_\d{3}/)?.[0];
+    if (!baseName) return;
+
+    const mobileSrc = isEN
+      ? `./assets/img/img_en/${baseName}_mobile.jpg`
+      : `./assets/img/img_es/${baseName}_mobile.jpg`;
+
+    const desktopSrc = isEN
+      ? `./assets/img/img_en/${baseName}.jpg`
+      : `./assets/img/img_es/${baseName}.jpg`;
+
+    if (source) source.setAttribute("srcset", mobileSrc);
+    img.setAttribute("src", desktopSrc);
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang");
-  let langToUse = "es";
+async function setLanguage(lang) {
+  if (lang === 'en') {
+    try {
+      const res = await fetch(`../translations/en.json`);
+      const translations = await res.json();
 
-  if (savedLang) {
-    langToUse = savedLang;
-  } else {
-    const browserLang = navigator.language.slice(0, 2);
-    if (["es", "en"].includes(browserLang)) {
-      langToUse = browserLang;
+      // Contenido con data-i18n
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        const value = translations[key];
+
+        if (value) {
+          if (Array.isArray(value)) {
+            if (el.tagName === 'UL' || el.tagName === 'DIV') {
+              el.innerHTML = '';
+              const ul = document.createElement('ul');
+              value.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                ul.appendChild(li);
+              });
+              el.appendChild(ul);
+            } else {
+              el.innerHTML = value.join('<br>');
+            }
+          } else {
+            el.innerHTML = value;
+          }
+        }
+      });
+
+      // Placeholder con data-i18n-placeholder
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        const value = translations[key];
+        if (value) {
+          el.setAttribute("placeholder", value);
+        }
+      });
+
+    } catch (err) {
+      console.error("Error cargando traducciones en inglés:", err);
     }
+  } else {
+    // Restaurar contenido original en español
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (originalTexts[key]) {
+        el.innerHTML = originalTexts[key];
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (originalTexts[key]) {
+        el.setAttribute("placeholder", originalTexts[key]);
+      }
+    });
   }
 
-  setLanguage(langToUse);
+  switchHomeImages(lang);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Guardar texto original (español)
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    originalTexts[key] = el.innerHTML;
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    originalTexts[key] = el.getAttribute("placeholder");
+  });
+
+  let lang = localStorage.getItem('lang');
+  if (!lang) {
+    const browserLang = navigator.language.slice(0, 2);
+    lang = browserLang === "es" ? "es" : "en";
+  }
+
+  setLanguage(lang);
+});
+
+// Botones de idioma
+document.getElementById("btn-es").addEventListener("click", () => {
+  localStorage.setItem("lang", "es");
+  setLanguage("es");
+});
+
+document.getElementById("btn-en").addEventListener("click", () => {
+  localStorage.setItem("lang", "en");
+  setLanguage("en");
 });
