@@ -13,12 +13,12 @@ function switchHomeImages(lang) {
     if (!baseName) return;
 
     const mobileSrc = isEN
-      ? `./assets/img/img_en/${baseName}_mobile.jpg`
-      : `./assets/img/img_es/${baseName}_mobile.jpg`;
+      ? `./assets/img/img_en/${baseName}_mobile.webp`
+      : `./assets/img/img_es/${baseName}_mobile.webp`;
 
     const desktopSrc = isEN
-      ? `./assets/img/img_en/${baseName}.jpg`
-      : `./assets/img/img_es/${baseName}.jpg`;
+      ? `./assets/img/img_en/${baseName}.webp`
+      : `./assets/img/img_es/${baseName}.webp`;
 
     if (source) source.setAttribute("srcset", mobileSrc);
     img.setAttribute("src", desktopSrc);

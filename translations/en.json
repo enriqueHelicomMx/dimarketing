@@ -99,9 +99,27 @@
   "form.name": "Name",
   "form.phone": "Phone",
   "form.email": "Email",
-  "form.select": "Select a service",
   "form.message": "Message",
   "form.submit": "Get a Quote",
+
+  "form.select": "Select a service",
+  "form.web": "Web",
+  "form.landing": "Landing Page",
+  "form.crm": "CRM",
+  "form.ecommerce": "E-commerce",
+  "form.google_ads": "Google Ads",
+  "form.rrss_seo": "Social Media SEO (RRSS SEO)",
+  "form.rrss_seo_sem": "Social Media SEO (RRSS SEO SEM)",
+  "form.brand_identity": "Brand Identity",
+  "form.print": "Print Materials",
+  "form.id_cards": "Standard ID Cards",
+  "form.digital_invites": "Digital Invitations",
+  "form.uniforms": "Uniforms",
+  "form.digital_menus": "Digital Menus",
+  "form.branding": "Branding",
+  "form.graphic_design": "Graphic Design",
+  "form.id_touch": "ID Touch",
+  "form.model_3d": "3D Modeling",
 
   "contact.footer": "Let's grow together and take your company to the top!"
 }
