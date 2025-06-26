@@ -20,11 +20,11 @@
 </head>
 
 <body>
-  <header class="header">
-    <a href="#" class="logo">
-      <img src="./assets/img/logo.webp" alt="" />
+  <header class="header" role="banner">
+    <a href="#" class="logo" aria-label="Dimarketing inicio">
+      <img src="./assets/img/logo.webp" alt="Logo Dimarketing" />
     </a>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Menú principal">
       <ul>
         <li><a href="#home" data-i18n="nav.home">inicio</a></li>
         <li><a href="#about" data-i18n="nav.about">nosotros</a></li>
@@ -33,33 +33,32 @@
       </ul>
     </nav>
     <div class="header-right">
-      <div class="language-selector">
-        <button id="btn-es" aria-label="Español">
-          <span class="flag-icon">
-            <img src="https://flagcdn.com/mx.svg" width="30" alt="Mexico"
+      <div class="language-selector" aria-label="Selector de idioma">
+        <button id="btn-es" aria-label="Español" tabindex="0">
+          <span class="flag-icon" aria-hidden="true">
+            <img src="https://flagcdn.com/mx.svg" width="30" alt="Bandera de México"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
-            <span class="emoji-fallback">🇲🇽</span>
+            <span class="emoji-fallback" aria-hidden="true">🇲🇽</span>
           </span>
         </button>
-        <button id="btn-en" aria-label="English">
-          <span class="flag-icon">
-            <img src="https://flagcdn.com/um.svg" width="30" alt="United States Minor Outlying Islands"
+        <button id="btn-en" aria-label="English" tabindex="0">
+          <span class="flag-icon" aria-hidden="true">
+            <img src="https://flagcdn.com/um.svg" width="30" alt="Bandera de Estados Unidos"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
-            <span class="emoji-fallback">🇺🇸</span>
+            <span class="emoji-fallback" aria-hidden="true">🇺🇸</span>
           </span>
         </button>
       </div>
       <a href="tel:+525532541027">
-        <button class="btn-contact" data-i18n="btn.contact">
-          <i class="fas fa-phone-alt icon"></i> +52 55 3254 1027
+        <button class="btn-contact" data-i18n="btn.contact" aria-label="Llamar a Dimarketing">
+          <i class="fas fa-phone-alt icon" aria-hidden="true"></i> +52 55 3254 1027
         </button>
       </a>
     </div>
-
   </header>
 
   <!-- home section -->
-  <section class="home" id="home">
+  <section class="home" id="home" aria-label="Inicio">
     <div class="swiper home-slide">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -102,7 +101,7 @@
   <!-- home ends -->
 
   <!-- about section -->
-  <section class="about" id="about">
+  <section class="about" id="about" aria-label="Sobre nosotros">
     <div class="box-container">
       <div class="image">
         <img src="./assets/img/nosotros_02.webp" alt="" class="img-base" />
@@ -126,7 +125,7 @@
   <!-- about ends -->
 
   <!-- services -->
-  <section class="services" id="services">
+  <section class="services" id="services" aria-label="Servicios">
 
     <h1 class="heading" data-i18n="servicios.title">Servicios</h1>
 
@@ -319,12 +318,12 @@
 
       </div>
 
-      <div class="cards-group">
+      <div class="cards-group" role="region" aria-label="Tarjetas de servicios">
 
         <div class="cards-services">
 
-          <div class="card card-item__services" data-file="id_touch">
-            <span class="ribbon">NEW</span>
+          <div class="card card-item__services" data-file="id_touch" tabindex="0" role="button" aria-pressed="false" aria-label="ID Touch">
+            <span class="ribbon" aria-label="Nuevo servicio">NEW</span>
             <img src="./assets/img/services/id_touch.webp" alt="ID Touch" />
             <div class="card-text" data-i18n="card.id_touch">ID Touch</div>
           </div>
@@ -383,7 +382,7 @@
           </div>
         </div>
 
-        <div class="cards-indicators"></div>
+        <div class="cards-indicators" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -391,7 +390,7 @@
   <!-- services ends -->
 
   <!-- contact us -->
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" aria-label="Contacto">
     <h1 class="heading" data-i18n="contact.title">CONTÁCTENOS</h1>
     <h3 data-i18n="contact.subtitle">Tus datos no serán compartidos</h3>
     <div class="box-container">
@@ -434,7 +433,7 @@
       </div>
       <div class="form-contact">
         <h3 class="heading" data-i18n="form.title">Escribenos</h3>
-        <form id="form-services">
+        <form id="form-services" aria-label="Formulario de contacto">
           <input type="hidden" name="type" value="Google Ads" />
           <input type="hidden" name="from_l" value="Página web" />
           <input type="hidden" name="origin" value="dimarketing.com.mx" />
@@ -444,11 +443,15 @@
           <input type="hidden" id="cum" name="opinion" value="si" />
           <input type="hidden" id="cums" name="constancia" value="si" />
           <div class="row">
-            <input type="text" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" required />
-            <input type="text" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" required />
+            <label for="name" class="sr-only">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" required aria-required="true" />
+            <label for="phone" class="sr-only">Teléfono</label>
+            <input type="text" id="phone" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" required aria-required="true" />
           </div>
-          <input type="email" name="email" placeholder="Email" data-i18n-placeholder="form.email" required />
-          <select name="service" id="service" required>
+          <label for="email" class="sr-only">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" data-i18n-placeholder="form.email" required aria-required="true" />
+          <label for="service" class="sr-only">Servicio</label>
+          <select name="service" id="service" required aria-required="true">
             <option value="" disabled selected data-i18n="form.select">Selecciona un servicio</option>
             <option value="26" data-i18n="form.web">web</option>
             <option value="28" data-i18n="form.landing">landing page</option>
@@ -468,7 +471,8 @@
             <option value="72" data-i18n="form.id_touch">id touch</option>
             <option value="73" data-i18n="form.model_3d">modelado 3d</option>
           </select>
-          <textarea name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message" required></textarea>
+          <label for="comments" class="sr-only">Mensaje</label>
+          <textarea id="comments" name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message" required aria-required="true"></textarea>
           <div class="row">
             <button type="submit" data-i18n="form.submit">Cotiza ahora</button>
           </div>
@@ -483,29 +487,37 @@
   <!-- contact us ends -->
 
   <div class="call">
-    <a href="#" id="btnWattsapp">
-      <i class="fab fa-whatsapp"></i>
+    <a href="#" id="btnWattsapp" aria-label="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
   </div>
 
   <!-- footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="credit">
       <p>Created By <span>Dimarketing</span> | 2025 All rights reserved.</p>
     </div>
-    <div class="share">
+    <div class="share" aria-label="Redes sociales">
       <ul>
-        <li onclick="window.open('https://www.facebook.com/dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <li>
+          <a href="https://www.facebook.com/dimarketing.oficial/" target="_blank" rel="noopener" aria-label="Facebook Dimarketing">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
         </li>
-        <li onclick="window.open('https://www.instagram.com/dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
-          <a href="#"><i class="fab fa-instagram-square"></i></a>
+        <li>
+          <a href="https://www.instagram.com/dimarketing.oficial/" target="_blank" rel="noopener" aria-label="Instagram Dimarketing">
+            <i class="fab fa-instagram-square" aria-hidden="true"></i>
+          </a>
         </li>
-        <li  onclick="window.open('https://www.tiktok.com/@dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
-          <a href="#"><i class="fab fa-tiktok"></i></a>
+        <li>
+          <a href="https://www.tiktok.com/@dimarketing.oficial/" target="_blank" rel="noopener" aria-label="TikTok Dimarketing">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
         </li>
-        <li onclick="window.open('https://mx.linkedin.com/company/dimarketing-estrategias-digitales-de-alto-impacto', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <li>
+          <a href="https://mx.linkedin.com/company/dimarketing-estrategias-digitales-de-alto-impacto" target="_blank" rel="noopener" aria-label="LinkedIn Dimarketing">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
         </li>
       </ul>
     </div>
