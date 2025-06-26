@@ -38,6 +38,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  const indicatorsContainer = document.querySelector(".cards-indicators");
+
+  function renderIndicators() {
+    if (!indicatorsContainer) return;
+    indicatorsContainer.innerHTML = "";
+    const total = Math.ceil(cards.length / visibleCards);
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement("span");
+      dot.className =
+        "indicator-dot" +
+        (i === Math.floor(currentIndex / visibleCards) ? " active" : "");
+      dot.addEventListener("click", () => {
+        currentIndex = i * visibleCards;
+        showCards();
+      });
+      indicatorsContainer.appendChild(dot);
+    }
+  }
+
   function showCards() {
     visibleCards = getVisibleCards(); // recalcular por si cambió
     allCards.forEach((card, index) => {
@@ -54,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
         card.style.display = "none";
       }
     });
+
+    renderIndicators();
 
     // Mostrar la descripción del primero visible
     const visibleCard = allCards[currentIndex];

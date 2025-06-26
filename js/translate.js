@@ -26,6 +26,10 @@ function switchHomeImages(lang) {
 }
 
 async function setLanguage(lang) {
+  // ✅ Agregar clase lang-es o lang-en al <html> para controlar estilos
+  document.documentElement.classList.remove("lang-es", "lang-en");
+  document.documentElement.classList.add(`lang-${lang}`);
+
   if (lang === 'en') {
     try {
       const res = await fetch(`../translations/en.json`);
