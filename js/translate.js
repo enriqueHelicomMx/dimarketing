@@ -30,6 +30,14 @@ async function setLanguage(lang) {
   document.documentElement.classList.remove("lang-es", "lang-en");
   document.documentElement.classList.add(`lang-${lang}`);
 
+  // Mostrar/ocultar impresos según idioma usando clase
+  const impresosServices = document.querySelectorAll('.services-item[data-file="impresos"]');
+  const impresosCards = document.querySelectorAll('.card[data-file="impresos"]');
+  const impresosOption = document.querySelectorAll('.option-impresos');
+  impresosServices.forEach(el => el.classList.toggle('hide-impresos', lang === "en"));
+  impresosCards.forEach(el => el.classList.toggle('hide-impresos', lang === "en"));
+  impresosOption.forEach(el => el.classList.toggle('hide-impresos', lang === "en"));
+
   if (lang === 'en') {
     try {
       const res = await fetch(`../translations/en.json`);

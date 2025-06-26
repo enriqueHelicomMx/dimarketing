@@ -157,20 +157,19 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     let formdata = new FormData(formService);
 
-    fetch("http://dev.syshelicom.mx/app/supervisors/actions/func_leads.php", {
+    fetch("https://syshelicom.mx/app/supervisors/actions/func_leads.php", {
       method: "POST",
       body: formdata,
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           throw new Error("Error en la peticion");
         }
-
         return response.text();
       })
       .then((data) => {
         console.log(data);
+        formService.reset(); // Limpiar el formulario
       })
       .catch((error) => {
         console.log(error);

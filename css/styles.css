@@ -305,7 +305,7 @@ section {
 
 .services .box-container .cards-group .cards-services{
   width: 100%;
-  justify-content: center;
+  justify-content: start;
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
@@ -632,6 +632,10 @@ section {
 .cards-group {
   display: flex;
   flex-direction: column;
+}
+
+.hide-impresos {
+  display: none !important;
 }
 
 @media (max-width: 991px) {

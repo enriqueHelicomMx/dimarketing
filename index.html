@@ -444,14 +444,12 @@
           <input type="hidden" id="cum" name="opinion" value="si" />
           <input type="hidden" id="cums" name="constancia" value="si" />
           <div class="row">
-            <input type="text" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" />
-            <input type="text" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" />
+            <input type="text" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" required />
+            <input type="text" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" required />
           </div>
-
-          <input type="text" name="email" placeholder="Email" data-i18n-placeholder="form.email" />
-
-          <select name="service" id="service">
-            <option value="0" data-i18n="form.select">Selecciona un servicio</option>
+          <input type="email" name="email" placeholder="Email" data-i18n-placeholder="form.email" required />
+          <select name="service" id="service" required>
+            <option value="" disabled selected data-i18n="form.select">Selecciona un servicio</option>
             <option value="26" data-i18n="form.web">web</option>
             <option value="28" data-i18n="form.landing">landing page</option>
             <option value="29" data-i18n="form.crm">crm</option>
@@ -460,7 +458,7 @@
             <option value="32" data-i18n="form.rrss_seo">redes sociales seo (rrss seo)</option>
             <option value="33" data-i18n="form.rrss_seo_sem">redes sociales seo (rrss seo sem)</option>
             <option value="34" data-i18n="form.brand_identity">identidad corporativa</option>
-            <option value="36" data-i18n="form.print">impresos</option>
+            <option value="36" data-i18n="form.print" class="option-impresos">impresos</option>
             <option value="37" data-i18n="form.id_cards">id cars standard</option>
             <option value="39" data-i18n="form.digital_invites">invitaciones digitales</option>
             <option value="67" data-i18n="form.uniforms">uniformes</option>
@@ -470,9 +468,7 @@
             <option value="72" data-i18n="form.id_touch">id touch</option>
             <option value="73" data-i18n="form.model_3d">modelado 3d</option>
           </select>
-
-          <textarea name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message"></textarea>
-
+          <textarea name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message" required></textarea>
           <div class="row">
             <button type="submit" data-i18n="form.submit">Cotiza ahora</button>
           </div>
@@ -499,16 +495,16 @@
     </div>
     <div class="share">
       <ul>
-        <li>
+        <li onclick="window.open('https://www.facebook.com/dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
         </li>
-        <li>
+        <li onclick="window.open('https://www.instagram.com/dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
           <a href="#"><i class="fab fa-instagram-square"></i></a>
         </li>
-        <li>
+        <li  onclick="window.open('https://www.tiktok.com/@dimarketing.oficial/', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
           <a href="#"><i class="fab fa-tiktok"></i></a>
         </li>
-        <li>
+        <li onclick="window.open('https://mx.linkedin.com/company/dimarketing-estrategias-digitales-de-alto-impacto', 'mywindow','menubar=1,resizable=1,width=1280,height=720');">
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </li>
       </ul>
