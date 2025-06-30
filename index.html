@@ -5,8 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-
+  <meta name="description"
+    content="Somos especialistas en la fusión de estrategia y diseño para dar visibilidad a tu marca." />
   <title>Dimarketing</title>
+  <link rel="preload" as="image" href="./assets/img/img_es/banner_001.webp" type="image/webp" />
+
+  <!-- favicon -->
+  <link rel="icon" href="./dimarketing.png" type="image/x-icon" rel="shortcut icon" />
+  <link rel="icon" type="./dimarketing.png" sizes="32x32" href="./dimarketing.png" />
+  <link rel="icon" type="./dimarketing.png" sizes="16x16" href="./dimarketing.png" />
 
   <!-- normalize -->
   <link rel="stylesheet" href="./css/normalize.css" />
@@ -26,24 +33,24 @@
     </a>
     <nav class="navbar" aria-label="Menú principal">
       <ul>
-        <li><a href="#home" data-i18n="nav.home">inicio</a></li>
-        <li><a href="#about" data-i18n="nav.about">nosotros</a></li>
-        <li><a href="#services" data-i18n="nav.services">servicios</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">contacto</a></li>
+        <li><a href="#home" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
       </ul>
     </nav>
     <div class="header-right">
       <div class="language-selector" aria-label="Selector de idioma">
         <button id="btn-es" aria-label="Español" tabindex="0">
           <span class="flag-icon" aria-hidden="true">
-            <img src="https://flagcdn.com/mx.svg" width="30" alt="Bandera de México"
+            <img src="https://flagcdn.com/mx.svg" width="30" alt="Bandera de México" loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
             <span class="emoji-fallback" aria-hidden="true">🇲🇽</span>
           </span>
         </button>
         <button id="btn-en" aria-label="English" tabindex="0">
           <span class="flag-icon" aria-hidden="true">
-            <img src="https://flagcdn.com/um.svg" width="30" alt="Bandera de Estados Unidos"
+            <img src="https://flagcdn.com/um.svg" width="30" alt="Bandera de Estados Unidos" loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
             <span class="emoji-fallback" aria-hidden="true">🇺🇸</span>
           </span>
@@ -51,7 +58,8 @@
       </div>
       <a href="tel:+525532541027">
         <button class="btn-contact" data-i18n="btn.contact" aria-label="Llamar a Dimarketing">
-          <i class="fas fa-phone-alt icon" aria-hidden="true"></i> +52 55 3254 1027
+          <i class="fas fa-phone-alt icon" aria-hidden="true"></i> 55 3254
+          1027
         </button>
       </a>
     </div>
@@ -64,38 +72,46 @@
         <div class="swiper-slide">
           <div class="image">
             <picture>
-              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_mobile_001.webp" />
-              <img src="./assets/img/img_es/banner_001.webp" alt="tus clientes si te encuentran primero" />
+              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_001_mobile.webp" />
+              <img src="./assets/img/img_es/banner_001.webp" alt="tus clientes si te encuentran primero" width="1200"
+                height="500" />
             </picture>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="image">
             <picture>
-              <source media="(max-width: 768px)" srcset="./assets/img/banner_002_mobile.webp" />
-              <img src="./assets/img/img_es/banner_002.webp" alt="haz que tu marca hable con fuerza" />
+              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_002_mobile.webp" />
+              <img src="./assets/img/img_es/banner_002.webp" alt="haz que tu marca hable con fuerza" width="1200"
+                height="500" />
             </picture>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="image">
             <picture>
-              <source media="(max-width: 768px)" srcset="./assets/img/banner_003_mobile.webp" />
-              <img src="./assets/img/img_es/banner_003.webp" alt="creamos sitios web que venden" />
+              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_003_mobile.webp" />
+              <img src="./assets/img/img_es/banner_003.webp" alt="creamos sitios web que venden" width="1200"
+                height="500" />
             </picture>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="image">
             <picture>
-              <source media="(max-width: 768px)" srcset="./assets/img/banner_004_mobile.webp" />
-              <img src="./assets/img/img_es/banner_004.webp" alt="nueva id touch todo se activa con un toque" />
+              <source media="(max-width: 768px)" srcset="./assets/img/img_es/banner_004_mobile.webp" />
+              <img src="./assets/img/img_es/banner_004.webp" alt="nueva id touch todo se activa con un toque"
+                width="1200" height="500" />
             </picture>
           </div>
         </div>
       </div>
       <div class="swiper-pagination"></div>
+      <!-- Flechas de navegación -->
+      <div class="swiper-button-prev" aria-label="Anterior"></div>
+      <div class="swiper-button-next" aria-label="Siguiente"></div>
     </div>
+    <button class="btn-home-cotizar" data-i18n="form.submit">!COTIZA AHORA!</button>
   </section>
 
   <!-- home ends -->
@@ -103,35 +119,37 @@
   <!-- about section -->
   <section class="about" id="about" aria-label="Sobre nosotros">
     <div class="box-container">
+
       <div class="image">
-        <img src="./assets/img/nosotros_02.webp" alt="" class="img-base" />
-        <img src="./assets/img/nosotros_01.webp" alt="" class="img-top" />
+        <img src="./assets/img/nosotros_02.webp" alt="" class="img-base" loading="lazy" width="400" height="500" />
+        <img src="./assets/img/nosotros_01.webp" alt="" class="img-top" loading="lazy" width="400" height="500" />
       </div>
 
       <div class="content">
-        <h1 class="heading" data-i18n="about.title">nosotros</h1>
-        <p data-i18n="about.text">Somos un equipo de profesionales especializados en <strong>MARKETING DIGITAL</strong>
-          basada en una
-          metodolog&iacute;a Inbound Marketing con el objetivo de entregar resultados positivos y aut&eacute;nticos para
-          negocios, Pymes y cualquier rubro empresarial.<br><br>Ofrecemos originalidad en cada uno de nuestros servicios
-          garantizando <strong>calidad&nbsp;</strong>y <strong>atenci&oacute;n.</strong><br><br>&nbsp;Para destacar tu
-          marca
-          llevamos a cabo un an&aacute;lisis de mercado integral que abarca todo el ciclo de vida de nuestros clientes
-          adapt&aacute;ndonos a su sector y objetivos de negocio para ofrecer los mayores beneficios a tu
-          compa&ntilde;&iacute;a.</p>
+        <h1 class="heading label" data-i18n="about.title">NOSOTROS</h1>
+        <p data-i18n="about.text">
+          Somos un equipo de profesionales especializados en
+          <strong>MARKETING DIGITAL</strong> basada en una metodolog&iacute;a
+          Inbound Marketing con el objetivo de entregar resultados positivos y
+          aut&eacute;nticos para negocios, Pymes y cualquier rubro
+          empresarial.<br /><br />Ofrecemos originalidad en cada uno de
+          nuestros servicios garantizando <strong>calidad&nbsp;</strong>y
+          <strong>atenci&oacute;n.</strong><br /><br />&nbsp;Para destacar tu
+          marca llevamos a cabo un an&aacute;lisis de mercado integral que
+          abarca todo el ciclo de vida de nuestros clientes
+          adapt&aacute;ndonos a su sector y objetivos de negocio para ofrecer
+          los mayores beneficios a tu compa&ntilde;&iacute;a.
+        </p>
       </div>
     </div>
   </section>
   <!-- about ends -->
 
   <!-- services -->
-  <section class="services" id="services" aria-label="Servicios">
-
-    <h1 class="heading" data-i18n="servicios.title">Servicios</h1>
-
+  <section id="services" class="services">
+    <h1 class="heading-custom label" data-i18n="servicios.titulo">SERVICIOS</h1>
     <div class="box-container">
-
-      <div class="content content-services" style="position: relative;">
+      <div class="content">
 
         <!-- id touch -->
         <div class="services-item" data-file="id_touch">
@@ -158,6 +176,11 @@
               </li>
             </ul>
           </div>
+          <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- google ads -->
@@ -166,6 +189,11 @@
           <div class="description__services">
             <p data-i18n="servicios.google_ads.0.descripcion">Anuncia tus productos y servicios con anuncios pagados a
               través de publicidad digital en esta plataforma.</p>
+          </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
           </div>
         </div>
 
@@ -187,6 +215,11 @@
             <p data-i18n="servicios.diseno_web.2.descripcion">Diseñada para convertir a los visitantes en clientes
               potenciales a través de un clic en un anuncio o enlace de campañas en Google Ads.</p>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- redes sociales -->
@@ -204,10 +237,15 @@
               través de campañas pagadas mostrando anuncios a usuarios específicos que están interesados en tu negocio.
             </p>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- impresiones -->
-        <div class="services-item" data-file="impresos">
+        <div class="services-item hide-on-en" data-file="impresos">
           <h3 data-i18n="servicios.impresos.0.titulo">Impresos y Promociones</h3>
           <div class="description__services">
             <p data-i18n="servicios.impresos.0.descripcion">Da a conocer tus productos y promueve tus servicios a través
@@ -227,6 +265,12 @@
               comunicación creando, fortaleciendo la imagen de marca generando confianza en tus clientes y empleados.
             </p>
           </div>
+
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- animacion 3d -->
@@ -235,6 +279,11 @@
           <div class="description__services">
             <p data-i18n="servicios.animacion.0.descripcion">Creamos representaciones digitales tridimensionales de
               objetos, productos y espacios para promocionar o visualizar tu negocio.</p>
+          </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
           </div>
         </div>
 
@@ -269,6 +318,11 @@
               <li>Tarjetas de presentación</li>
             </ul>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- id cards -->
@@ -290,6 +344,11 @@
             <p data-i18n="servicios.id_cards.2.descripcion">Facilita a tus clientes la consulta, el orden de tus
               productos o servicios de manera rápida y accesible desde sus dispositivos móviles o computadoras.</p>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- disenio grafico -->
@@ -305,6 +364,11 @@
             <p data-i18n="servicios.diseno_grafico.1.descripcion">Destaca tu marca en línea con diseños visuales
               impactantes que promocionen tus productos o servicios de manera efectiva y atractiva.</p>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
 
         <!-- crm -->
@@ -313,76 +377,76 @@
           <div class="description__services">
             <p data-i18n="servicios.crm.0.descripcion">Gestiona las relaciones con tus clientes de manera eficiente.</p>
           </div>
+           <div class="row">
+            <button type="button" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
+          </div>
         </div>
-
 
       </div>
-
-      <div class="cards-group" role="region" aria-label="Tarjetas de servicios">
-
-        <div class="cards-services">
-
-          <div class="card card-item__services" data-file="id_touch" tabindex="0" role="button" aria-pressed="false" aria-label="ID Touch">
+      <div class="cards-services">
+        <!-- Grupo 1: Primeros 5 + Otros Servicios -->
+        <div class="cards-group cards-group-1">
+          <div class="card">
             <span class="ribbon" aria-label="Nuevo servicio">NEW</span>
-            <img src="./assets/img/services/id_touch.webp" alt="ID Touch" />
+            <img src="./assets/img/services/id_touch.webp" alt="ID Touch" loading="lazy" width="300" height="200" />
             <div class="card-text" data-i18n="card.id_touch">ID Touch</div>
           </div>
-
-          <div class="card card-item__services" data-file="google_ads">
-            <img src="./assets/img/services/google_ads.webp" alt="Google Ads" />
+          <div class="card">
+            <img src="./assets/img/services/google_ads.webp" alt="Google Ads" loading="lazy" width="300" height="200" />
             <div class="card-text" data-i18n="card.google_ads">Google ADS</div>
           </div>
-
-          <div class="card card-item__services" data-file="redes_sociales">
-            <img src="./assets/img/services/redes_sociales.webp" alt="Redes Sociales" />
-            <div class="card-text" data-i18n="card.redes_sociales">Redes Sociales <br />SEO y SEM</div>
+          <div class="card">
+            <img src="./assets/img/services/diseno_web.webp" alt="Diseño Web" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.diseno_web">Diseño Web<br>E-commerce<br>Landing Page</div>
           </div>
-
-          <div class="card card-item__services" data-file="diseno_web">
-            <img src="./assets/img/services/diseno_web.webp" alt="Diseño Web" />
-            <div class="card-text" data-i18n="card.diseno_web">
-              Diseno WEB <br />E-commer<br />Landing Page
+          <div class="card">
+            <img src="./assets/img/services/redes_sociales.webp" alt="Redes Sociales" loading="lazy" width="300"
+              height="200" />
+            <div class="card-text" data-i18n="card.redes_sociales">Redes Sociales<br>SEO y SEM</div>
+          </div>
+          <div class="card hide-on-en">
+            <img src="./assets/img/services/impresos.webp" alt="Impresos" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.impresos">Impresos y Promocionales<br>Branding<br>Uniformes</div>
+          </div>
+          <!-- Card "Otros Servicios" como botón -->
+          <div class="card card-next" id="btn-more-services" style="cursor:pointer;">
+            <img src="./assets/img/services/otros.jpg" alt="Otros Servicios" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.otros">Otros Servicios<br><span style="font-size:1.2rem;">Ver
+                más</span>
             </div>
-          </div>
-
-          <div class="card card-item__services" data-file="impresos">
-            <img src="./assets/img/services/impresos.webp" alt="Impresos" />
-            <div class="card-text" data-i18n="card.impresos">
-              Impresos y Promocionales <br />Branding <br />Uniformes
-            </div>
-          </div>
-
-          <div class="card card-item__services" data-file="id_cards">
-            <img src="./assets/img/services/id_cards.webp" alt="ID Cards" />
-            <div class="card-text" data-i18n="card.id_cards">
-              ID Cards <br />Invitaciones Digitales <br />Menus Digitales
-            </div>
-          </div>
-
-          <div class="card card-item__services" data-file="identidad">
-            <img src="./assets/img/services/identidad.webp" alt="Identidad" />
-            <div class="card-text" data-i18n="card.identidad">Identidad corporativa</div>
-          </div>
-
-          <div class="card card-item__services" data-file="diseno_grafico">
-            <img src="./assets/img/services/diseno_grafico.webp" alt="Diseño Gráfico" />
-            <div class="card-text" data-i18n="card.diseno_grafico">
-              Diseñó Gráfico <br />Creación de Logotipo
-            </div>
-          </div>
-
-          <div class="card card-item__services" data-file="crm">
-            <img src="./assets/img/services/crm.webp" alt="CRM" />
-            <div class="card-text" data-i18n="card.crm">CRM</div>
-          </div>
-
-          <div class="card card-item__services" data-file="animacion">
-            <img src="./assets/img/services/animacion.webp" alt="Animación" />
-            <div class="card-text" data-i18n="card.animacion">Modelado 3D</div>
           </div>
         </div>
-
-        <div class="cards-indicators" aria-hidden="true"></div>
+        <!-- Grupo 2: Siguientes 5 -->
+        <div class="cards-group cards-group-2" style="display:none;">
+          <div class="card">
+            <img src="./assets/img/services/id_cards.webp" alt="ID Cards" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.id_cards">ID Cards<br>Invitaciones Digitales<br>Menus digitales</div>
+          </div>
+          <div class="card">
+            <img src="./assets/img/services/identidad.webp" alt="Identidad" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.identidad">Identidad Corporativa</div>
+          </div>
+          <div class="card">
+            <img src="./assets/img/services/diseno_grafico.webp" alt="Diseño Gráfico" loading="lazy" width="300"
+              height="200" />
+            <div class="card-text" data-i18n="card.diseno_grafico">Diseño Gráfico<br>Creacion de Logotipos</div>
+          </div>
+          <div class="card">
+            <img src="./assets/img/services/crm.webp" alt="CRM" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.crm">CRM</div>
+          </div>
+          <div class="card">
+            <img src="./assets/img/services/animacion.webp" alt="modelado" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.modelado">Modelado 3D</div>
+          </div>
+          <!-- Card "Volver" para regresar -->
+          <div class="card card-prev" id="btn-prev-services" style="cursor:pointer;">
+            <img src="./assets/img/services/otros.jpg" alt="Volver" loading="lazy" width="300" height="200" />
+            <div class="card-text" data-i18n="card.volver">Volver</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -391,7 +455,9 @@
 
   <!-- contact us -->
   <section class="contact" id="contact" aria-label="Contacto">
-    <h1 class="heading" data-i18n="contact.title">CONTÁCTENOS</h1>
+    <h1 class="heading-custom label" data-i18n="contact.title">
+      CONTÁCTENOS
+    </h1>
     <h3 data-i18n="contact.subtitle">Tus datos no serán compartidos</h3>
     <div class="box-container">
       <div class="content">
@@ -425,7 +491,7 @@
               <i class="fas fa-phone-alt icon"></i>
               <div class="info-text">
                 <span class="info-title" data-i18n="contact.phone">Teléfono:</span>
-                <span class="info-detail"> +52 55 3254 1027 </span>
+                <span class="info-detail"> 55 3254 1027 </span>
               </div>
             </li>
           </ul>
@@ -444,40 +510,63 @@
           <input type="hidden" id="cums" name="constancia" value="si" />
           <div class="row">
             <label for="name" class="sr-only">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" required aria-required="true" />
+            <input type="text" id="name" name="name" placeholder="Nombre" data-i18n-placeholder="form.name" required
+              aria-required="true" />
             <label for="phone" class="sr-only">Teléfono</label>
-            <input type="text" id="phone" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone" required aria-required="true" />
+            <input type="text" id="phone" name="phone" placeholder="Teléfono" data-i18n-placeholder="form.phone"
+              required aria-required="true" />
           </div>
           <label for="email" class="sr-only">Email</label>
-          <input type="email" id="email" name="email" placeholder="Email" data-i18n-placeholder="form.email" required aria-required="true" />
+          <input type="email" id="email" name="email" placeholder="Email" data-i18n-placeholder="form.email" required
+            aria-required="true" />
           <label for="service" class="sr-only">Servicio</label>
           <select name="service" id="service" required aria-required="true">
-            <option value="" disabled selected data-i18n="form.select">Selecciona un servicio</option>
+            <option value="" disabled selected data-i18n="form.select">
+              Selecciona un servicio
+            </option>
             <option value="26" data-i18n="form.web">web</option>
             <option value="28" data-i18n="form.landing">landing page</option>
             <option value="29" data-i18n="form.crm">crm</option>
             <option value="30" data-i18n="form.ecommerce">ecommerce</option>
             <option value="31" data-i18n="form.google_ads">google ads</option>
-            <option value="32" data-i18n="form.rrss_seo">redes sociales seo (rrss seo)</option>
-            <option value="33" data-i18n="form.rrss_seo_sem">redes sociales seo (rrss seo sem)</option>
-            <option value="34" data-i18n="form.brand_identity">identidad corporativa</option>
-            <option value="36" data-i18n="form.print" class="option-impresos">impresos</option>
-            <option value="37" data-i18n="form.id_cards">id cars standard</option>
-            <option value="39" data-i18n="form.digital_invites">invitaciones digitales</option>
-            <option value="67" data-i18n="form.uniforms">uniformes</option>
-            <option value="68" data-i18n="form.digital_menus">menús digitales</option>
+            <option value="32" data-i18n="form.rrss_seo">
+              redes sociales seo (rrss seo)
+            </option>
+            <option value="33" data-i18n="form.rrss_seo_sem">
+              redes sociales seo (rrss seo sem)
+            </option>
+            <option value="34" data-i18n="form.brand_identity">
+              identidad corporativa
+            </option>
+            <option value="36" data-i18n="form.print" class="hide-on-en">
+              impresos
+            </option>
+            <option value="37" data-i18n="form.id_cards">
+              id cars standard
+            </option>
+            <option value="39" data-i18n="form.digital_invites">
+              invitaciones digitales
+            </option>
+            <option value="67" data-i18n="form.uniforms" class="hide-on-en">uniformes</option>
+            <option value="68" data-i18n="form.digital_menus">
+              menús digitales
+            </option>
             <option value="69" data-i18n="form.branding">branding</option>
-            <option value="70" data-i18n="form.graphic_design">diseño gráfico</option>
+            <option value="70" data-i18n="form.graphic_design">
+              diseño gráfico
+            </option>
             <option value="72" data-i18n="form.id_touch">id touch</option>
             <option value="73" data-i18n="form.model_3d">modelado 3d</option>
           </select>
           <label for="comments" class="sr-only">Mensaje</label>
-          <textarea id="comments" name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message" required aria-required="true"></textarea>
+          <textarea id="comments" name="comments" placeholder="Mensaje" data-i18n-placeholder="form.message" required
+            aria-required="true"></textarea>
           <div class="row">
-            <button type="submit" data-i18n="form.submit">Cotiza ahora</button>
+            <button type="submit" data-i18n="form.submit">
+              Cotiza ahora
+            </button>
           </div>
         </form>
-
       </div>
     </div>
     <h3 data-i18n="contact.footer">
@@ -500,22 +589,26 @@
     <div class="share" aria-label="Redes sociales">
       <ul>
         <li>
-          <a href="https://www.facebook.com/dimarketing.oficial/" target="_blank" rel="noopener" aria-label="Facebook Dimarketing">
+          <a href="https://www.facebook.com/dimarketing.oficial/" target="_blank" rel="noopener"
+            aria-label="Facebook Dimarketing">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/dimarketing.oficial/" target="_blank" rel="noopener" aria-label="Instagram Dimarketing">
+          <a href="https://www.instagram.com/dimarketing.oficial/" target="_blank" rel="noopener"
+            aria-label="Instagram Dimarketing">
             <i class="fab fa-instagram-square" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.tiktok.com/@dimarketing.oficial/" target="_blank" rel="noopener" aria-label="TikTok Dimarketing">
+          <a href="https://www.tiktok.com/@dimarketing.oficial/" target="_blank" rel="noopener"
+            aria-label="TikTok Dimarketing">
             <i class="fab fa-tiktok" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href="https://mx.linkedin.com/company/dimarketing-estrategias-digitales-de-alto-impacto" target="_blank" rel="noopener" aria-label="LinkedIn Dimarketing">
+          <a href="https://mx.linkedin.com/company/dimarketing-estrategias-digitales-de-alto-impacto" target="_blank"
+            rel="noopener" aria-label="LinkedIn Dimarketing">
             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
           </a>
         </li>
@@ -524,16 +617,11 @@
   </footer>
   <!-- footer ends -->
 
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-  <!-- swiper custom -->
-  <script src="./js/swiper-main.js"></script>
-
-  <!-- translate -->
-  <script src="./js/translate.js"></script>
-
-  <!-- main js -->
-  <script src="./js/main.js"></script>
+  <!-- Mejora en la carga de scripts al final del body -->
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
+  <script src="./js/swiper-main.js" defer></script>
+  <script src="./js/translate.js" defer></script>
+  <script src="./js/main.js" defer></script>
 </body>
 
 </html>

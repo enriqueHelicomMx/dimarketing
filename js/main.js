@@ -1,156 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".cards-services");
-  const serviceItems = document.querySelectorAll(".services-item");
-  const cards = Array.from(document.querySelectorAll(".card-item__services"));
-  let currentIndex = 0;
-  let visibleCards = getVisibleCards();
-  let autoplay;
-
-  // Clonar los primeros elementos para efecto infinito
-  const clonedCards = cards
-    .slice(0, visibleCards)
-    .map((card) => card.cloneNode(true));
-  clonedCards.forEach((card) => container.appendChild(card));
-  const allCards = [...cards, ...clonedCards];
-
-  function getVisibleCards() {
-    return window.innerWidth <= 768 ? 1 : 4;
-  }
-
-  function showService(fileName) {
-    const currentActive = document.querySelector(".services-item.active");
-    const nextActive = [...serviceItems].find(
-      (item) => item.dataset.file === fileName
-    );
-
-    if (!nextActive || currentActive === nextActive) return;
-
-    if (currentActive) {
-      currentActive.classList.remove("active");
-      currentActive.classList.add("fade-out");
-
-      setTimeout(() => {
-        currentActive.classList.remove("fade-out");
-        nextActive.classList.add("active");
-      }, 300);
-    } else {
-      nextActive.classList.add("active");
-    }
-  }
-
-  const indicatorsContainer = document.querySelector(".cards-indicators");
-
-  function renderIndicators() {
-    if (!indicatorsContainer) return;
-    indicatorsContainer.innerHTML = "";
-    const total = Math.ceil(cards.length / visibleCards);
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement("span");
-      dot.className =
-        "indicator-dot" +
-        (i === Math.floor(currentIndex / visibleCards) ? " active" : "");
-      dot.addEventListener("click", () => {
-        currentIndex = i * visibleCards;
-        showCards();
-      });
-      indicatorsContainer.appendChild(dot);
-    }
-  }
-
-  function showCards() {
-    visibleCards = getVisibleCards(); // recalcular por si cambió
-    allCards.forEach((card, index) => {
-      if (index >= currentIndex && index < currentIndex + visibleCards) {
-        card.style.display = "block";
-        card.style.opacity = "0";
-        card.style.transform = "translateX(10px)";
-        requestAnimationFrame(() => {
-          card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-          card.style.opacity = "1";
-          card.style.transform = "translateX(0)";
-        });
-      } else {
-        card.style.display = "none";
-      }
-    });
-
-    renderIndicators();
-
-    // Mostrar la descripción del primero visible
-    const visibleCard = allCards[currentIndex];
-    if (visibleCard) {
-      const fileName = visibleCard.dataset.file;
-      showService(fileName);
-    }
-  }
-
-  function nextCards() {
-    currentIndex++;
-
-    if (currentIndex >= cards.length) {
-      setTimeout(() => {
-        currentIndex = 0;
-        container.style.transition = "none";
-        showCards();
-        void container.offsetWidth; // reflow
-        container.style.transition = "";
-      }, 500);
-    }
-
-    animateTransition("next");
-    showCards();
-  }
-
-  function animateTransition(direction) {
-    const visible = container.querySelectorAll(".card-item__services");
-    visible.forEach((card) => {
-      card.style.opacity = "0.7";
-      card.style.transform =
-        direction === "next" ? "translateX(-20px)" : "translateX(20px)";
-    });
-
-    setTimeout(() => {
-      visible.forEach((card) => {
-        card.style.opacity = "1";
-        card.style.transform = "translateX(0)";
-        card.style.transition = "all 0.3s ease";
-      });
-    }, 200);
-  }
-
-  // Click para mostrar descripción
-  allCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const fileName = card.dataset.file;
-      showService(fileName);
-    });
-  });
-
-  // Mostrar por defecto
-  showCards();
-
-  // Autoplay
-  function startAutoplay() {
-    autoplay = setInterval(nextCards, 4000);
-  }
-
-  function stopAutoplay() {
-    clearInterval(autoplay);
-  }
-
-  startAutoplay();
-
-  container.addEventListener("mouseenter", stopAutoplay);
-  container.addEventListener("mouseleave", startAutoplay);
-
-  // Detectar resize para adaptar visibleCards
-  window.addEventListener("resize", () => {
-    visibleCards = getVisibleCards();
-    showCards();
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   const formService = document.getElementById("form-services");
 
   formService.addEventListener("submit", function (e) {
@@ -177,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const whatsappNumber = "5215548722671"; // Incluye el "52" de México y el número completo
+const whatsappNumber = "5215532541027"; // Incluye el "52" de México y el número completo
 
 function validateMobile() {
   return /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent);
@@ -197,4 +45,260 @@ function openWhatsAppChat() {
 document.getElementById("btnWattsapp").addEventListener("click", function (e) {
   e.preventDefault(); // Evita que el enlace actúe como un link normal
   openWhatsAppChat();
+});
+
+// Asociación entre cards y servicios
+document.addEventListener('DOMContentLoaded', function () {
+  const serviceItems = document.querySelectorAll('.services-item');
+  const cards = document.querySelectorAll('.cards-services .card');
+
+  // Mapea el orden de los data-file con el orden de las cards
+  const dataFiles = [
+    'id_touch',
+    'google_ads',
+    'diseno_web',
+    'redes_sociales',
+    'impresos',
+    'id_cards',
+    'identidad',
+    'diseno_grafico',
+    'crm',
+    'animacion',
+    'otros'
+  ];
+
+  // Asocia cada card con su data-file
+  cards.forEach((card, idx) => {
+    card.setAttribute('data-file', dataFiles[idx] || '');
+    card.addEventListener('click', function () {
+      // Quita la clase activa de todos los servicios
+      serviceItems.forEach(item => item.classList.remove('active'));
+      // Busca el servicio correspondiente y lo activa
+      const target = document.querySelector(`.services-item[data-file="${card.getAttribute('data-file')}"]`);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  // Opcional: al hacer click en un servicio, resalta la card correspondiente
+  serviceItems.forEach(item => {
+    item.addEventListener('click', function () {
+      cards.forEach(card => card.classList.remove('active'));
+      const target = document.querySelector(`.cards-services .card[data-file="${item.getAttribute('data-file')}"]`);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+});
+
+// Mostrar/Ocultar grupos de cards de servicios
+document.addEventListener('DOMContentLoaded', function () {
+  const group1 = document.querySelector('.cards-group-1');
+  const group2 = document.querySelector('.cards-group-2');
+  const btnMore = document.getElementById('btn-more-services');
+  const btnPrev = document.getElementById('btn-prev-services');
+
+  if (btnMore) {
+    btnMore.addEventListener('click', function () {
+      group1.style.display = 'none';
+      group2.style.display = 'grid';
+    });
+  }
+  if (btnPrev) {
+    btnPrev.addEventListener('click', function () {
+      group2.style.display = 'none';
+      group1.style.display = 'grid';
+    });
+  }
+});
+
+// Mostrar solo el servicio seleccionado y ocultar los demás
+document.addEventListener('DOMContentLoaded', function () {
+  const serviceItems = document.querySelectorAll('.services-item');
+  const cards = document.querySelectorAll('.cards-services .card');
+
+  // Mostrar solo el de id_touch por defecto
+  serviceItems.forEach(item => {
+    if (item.getAttribute('data-file') === 'id_touch') {
+      item.style.display = 'block';
+      item.classList.add('active');
+    } else {
+      item.style.display = 'none';
+      item.classList.remove('active');
+    }
+  });
+
+  // Asocia cada card con su data-file
+  cards.forEach(card => {
+    card.addEventListener('click', function () {
+      const file = card.getAttribute('data-file');
+      console.log(`Card clicked: ${file}`);
+      // Oculta todos los servicios
+      serviceItems.forEach(item => {
+        item.style.display = 'none';
+        item.classList.remove('active');
+      });
+      // Muestra solo el servicio correspondiente
+      const target = document.querySelector(`.services-item[data-file="${file}"]`);
+      if (target) {
+        target.style.display = 'block';
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Selección de elementos
+  const serviceItems = document.querySelectorAll('.services-item');
+  const group1 = document.querySelector('.cards-group-1');
+  const group2 = document.querySelector('.cards-group-2');
+  const btnMore = document.getElementById('btn-more-services');
+  const btnPrev = document.getElementById('btn-prev-services');
+
+  // Mapeo de data-file para cada grupo de cards
+  const group1Files = [
+    'id_touch',
+    'google_ads',
+    'diseno_web',
+    'redes_sociales',
+    'impresos'
+  ];
+  const group2Files = [
+    'id_cards',
+    'identidad',
+    'diseno_grafico',
+    'crm',
+    'animacion'
+  ];
+
+  // Función para mostrar solo un servicio
+  function showService(dataFile) {
+    serviceItems.forEach(item => {
+      if (item.getAttribute('data-file') === dataFile) {
+        item.style.display = 'block';
+        item.classList.add('active');
+        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  // Inicialmente muestra solo el primero del grupo 1
+  showService(group1Files[0]);
+
+  // Asocia cards del grupo 1
+  group1.querySelectorAll('.card').forEach((card, idx) => {
+    // Si es el botón "Otros Servicios", no asocia servicio
+    if (card.classList.contains('card-next')) return;
+    card.setAttribute('data-file', group1Files[idx]);
+    card.addEventListener('click', function () {
+      showService(group1Files[idx]);
+    });
+  });
+
+  // Asocia cards del grupo 2
+  group2.querySelectorAll('.card').forEach((card, idx) => {
+    // Si es el botón "Volver", no asocia servicio
+    if (card.classList.contains('card-prev')) return;
+    card.setAttribute('data-file', group2Files[idx]);
+    card.addEventListener('click', function () {
+      showService(group2Files[idx]);
+    });
+  });
+
+  // Botón "Ver más" muestra grupo 2 y el primer servicio de ese grupo
+  if (btnMore) {
+    btnMore.addEventListener('click', function () {
+      group1.style.display = 'none';
+      group2.style.display = 'grid';
+      showService(group2Files[0]);
+    });
+  }
+
+  // Botón "Volver" muestra grupo 1 y el primer servicio de ese grupo
+  if (btnPrev) {
+    btnPrev.addEventListener('click', function () {
+      group2.style.display = 'none';
+      group1.style.display = 'grid';
+      showService(group1Files[0]);
+    });
+  }
+});
+
+// Mostrar el botón WhatsApp solo después de hacer scroll en el home
+document.addEventListener('DOMContentLoaded', function () {
+  const callBtn = document.querySelector('.call');
+  const homeSection = document.getElementById('home');
+
+  function toggleCallBtn() {
+    const homeBottom = homeSection.getBoundingClientRect().bottom + window.scrollY;
+    if (window.scrollY > homeBottom - 100) {
+      callBtn.style.display = 'block';
+    } else {
+      callBtn.style.display = 'none';
+    }
+  }
+
+  // Oculta al cargar
+  callBtn.style.display = 'none';
+
+  window.addEventListener('scroll', toggleCallBtn);
+});
+
+// Función para abrir WhatsApp sin mensaje, detectando mobile o desktop
+function openWhatsAppService() {
+  const whatsappNumber = "5215532541027";
+  const isMobile = /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent);
+  const url = isMobile
+    ? `https://wa.me/${whatsappNumber}`
+    : `https://web.whatsapp.com/send?phone=${whatsappNumber}`;
+  window.open(url, "_blank");
+}
+
+// Asigna evento a todos los botones "Cotiza ahora" de servicios
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.services-item .row button').forEach(btn => {
+    btn.addEventListener('click', function () {
+      openWhatsAppService();
+    });
+  });
+});
+
+// Hace que el botón principal "Cotiza Ahora" abra WhatsApp
+document.addEventListener('DOMContentLoaded', function () {
+  const homeCotizarBtn = document.querySelector('.btn-home-cotizar');
+  if (homeCotizarBtn) {
+    homeCotizarBtn.addEventListener('click', function () {
+      openWhatsAppService();
+    });
+  }
+});
+
+// Nueva funcionalidad: selección de cards en grupo
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.cards-group').forEach(group => {
+    group.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', function (e) {
+        // Quita selección previa
+        group.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+        // Marca la seleccionada
+        card.classList.add('selected');
+        // Activa modo selección en el grupo
+        group.classList.add('selected-mode');
+      });
+    });
+    // Opcional: al salir del grupo, quita el modo selección
+    group.addEventListener('mouseleave', function () {
+      group.classList.remove('selected-mode');
+      group.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+    });
+  });
 });
