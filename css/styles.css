@@ -58,8 +58,7 @@ input[type="submit"] {
 }
 
 section {
-  padding: 3rem 9%;
-  height: 900px;
+  padding: 5rem 5%;
 }
 
 .heading {
@@ -229,7 +228,7 @@ section {
   transform: translate(-50%, -50%);
   background: var(--secondary-color);
   color: white;
-  padding: 3rem 4rem;
+  padding: 1.5rem 4rem;
   font-size: 1.6rem;
   font-weight: bold;
   border: none;
