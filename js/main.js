@@ -178,12 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
 
   // Función para mostrar solo un servicio
-  function showService(dataFile) {
+  function showService(dataFile, doScroll = true) {
     serviceItems.forEach(item => {
       if (item.getAttribute('data-file') === dataFile) {
         item.style.display = 'block';
         item.classList.add('active');
-        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (doScroll) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       } else {
         item.style.display = 'none';
         item.classList.remove('active');
@@ -192,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Inicialmente muestra solo el primero del grupo 1
-  showService(group1Files[0]);
+  showService(group1Files[0], false);
 
   // Asocia cards del grupo 1
   group1.querySelectorAll('.card').forEach((card, idx) => {

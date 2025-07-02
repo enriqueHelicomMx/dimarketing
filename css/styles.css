@@ -30,7 +30,6 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -355,7 +354,6 @@ section {
 .contact .box-container {
   height: auto; /* Quita altura fija */
   min-height: 400px;
-
 }
 
 .services .box-container .content .services-item .description__services p {
@@ -394,8 +392,8 @@ section {
   transition: filter 0.3s, opacity 0.3s;
 }
 
-.services .box-container .cards-services .cards-group .card .ribbon{
-   --f: 0.5em;
+.services .box-container .cards-services .cards-group .card .ribbon {
+  --f: 0.5em;
   font-size: 28px;
   font-weight: bold;
   color: #fff;
@@ -819,7 +817,7 @@ section {
   }
 
   .about .box-container .content p {
-    font-size: 1.6rem; /* más cómodo en móviles */
+    font-size: 1.785rem; /* más cómodo en móviles */
     padding: 1rem 0;
   }
 
@@ -849,7 +847,29 @@ section {
 }
 
 @media (max-width: 450px) {
+  section {
+    padding: 5rem 3%;
+    height: auto; /* Ajuste principal */
+    min-height: 400px; /* Opcional: altura mínima */
+  }
+
   html {
-    font-size: 50%;
+    font-size: 55.5%;
+  }
+
+  .about .box-container .content {
+    padding: 4rem 2rem;
+  }
+
+  .btn-home-cotizar {
+    padding: 2rem 5.5rem;
+  }
+
+  .contact .box-container .content p {
+    padding: 2rem 2rem;
+  }
+
+  .services .box-container .content .services-item .description__services {
+    padding: 2rem 2rem;
   }
 }
