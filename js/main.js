@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Asocia cada card con su data-file
+  // Asocia cada card with su data-file
   cards.forEach(card => {
     card.addEventListener('click', function () {
       const file = card.getAttribute('data-file');
@@ -180,7 +180,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Función para mostrar solo un servicio
   function showService(dataFile, doScroll = true) {
     serviceItems.forEach(item => {
-      if (item.getAttribute('data-file') === dataFile) {
+      // No mostrar si está oculto por idioma
+      if (
+        item.getAttribute('data-file') === dataFile &&
+        !(document.documentElement.classList.contains('lang-en') && item.classList.contains('hide-on-en'))
+      ) {
         item.style.display = 'block';
         item.classList.add('active');
         if (doScroll) {
@@ -303,4 +307,92 @@ document.addEventListener('DOMContentLoaded', function () {
       group.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
     });
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+  const cardsContainer = document.querySelector('.cards-services');
+  const group1 = document.querySelector('.cards-group-1');
+  const group2 = document.querySelector('.cards-group-2');
+  // Solo cards de servicio, sin "Otros Servicios" ni "Volver"
+  const cards1 = group1
+    ? Array.from(group1.querySelectorAll('.card:not(.card-next):not(.hide-on-en)'))
+    : [];
+  const cards2 = group2
+    ? Array.from(group2.querySelectorAll('.card:not(.card-prev):not(.hide-on-en)'))
+    : [];
+  const allCards = [...cards1, ...cards2];
+  const serviceItems = document.querySelectorAll('.services-item');
+
+  if (isMobile && allCards.length > 1) {
+    let current = 0;
+    let intervalId = null;
+
+    // Oculta "Otros Servicios" y "Volver"
+    const cardNext = group1.querySelector('.card-next');
+    if (cardNext) cardNext.style.display = 'none';
+    const cardPrev = group2.querySelector('.card-prev');
+    if (cardPrev) cardPrev.style.display = 'none';
+
+    // Crea botones de navegación
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = '←';
+    prevBtn.className = 'carousel-prev';
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = '→';
+    nextBtn.className = 'carousel-next';
+
+    cardsContainer.appendChild(prevBtn);
+    cardsContainer.appendChild(nextBtn);
+
+    function showCard(idx) {
+      const inGroup1 = idx < cards1.length;
+      group1.style.display = inGroup1 ? 'flex' : 'none';
+      group2.style.display = inGroup1 ? 'none' : 'flex';
+
+      allCards.forEach((card, i) => {
+        card.style.display = i === idx ? 'block' : 'none';
+      });
+
+      // Oculta todos los servicios y muestra solo el correspondiente
+      serviceItems.forEach(item => {
+        if (item.getAttribute('data-file') === allCards[idx].getAttribute('data-file')) {
+          item.style.display = 'block';
+          item.classList.add('active');
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    function nextCard() {
+      current = (current + 1) % allCards.length;
+      showCard(current);
+    }
+
+    function prevCard() {
+      current = (current - 1 + allCards.length) % allCards.length;
+      showCard(current);
+    }
+
+    function startAuto() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = setInterval(nextCard, 3000);
+    }
+
+    prevBtn.addEventListener('click', function () {
+      prevCard();
+      startAuto();
+    });
+
+    nextBtn.addEventListener('click', function () {
+      nextCard();
+      startAuto();
+    });
+
+    // Inicializa carousel
+    showCard(current);
+    startAuto();
+  }
 });
