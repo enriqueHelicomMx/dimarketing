@@ -518,7 +518,7 @@ section {
   font-size: 1.7rem;
   font-family: "myriadpro_bold";
   text-align: start;
-  padding: 2rem 10rem;
+  padding: 2rem 20rem;
 }
 
 .contact .box-container .content .card {
@@ -982,7 +982,7 @@ html.lang-en .hide-on-en,
 
 @media (max-width: 450px) {
   section {
-    padding: 5rem 3%;
+    padding: 0 3%;
     height: auto;
     /* Ajuste principal */
     min-height: 400px;
