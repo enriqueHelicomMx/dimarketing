@@ -310,7 +310,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+  function isMobile() {
+    return /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  }
+
   const cardsContainer = document.querySelector('.cards-services');
   const group1 = document.querySelector('.cards-group-1');
   const group2 = document.querySelector('.cards-group-2');
@@ -324,9 +327,55 @@ document.addEventListener('DOMContentLoaded', function () {
   const allCards = [...cards1, ...cards2];
   const serviceItems = document.querySelectorAll('.services-item');
 
-  if (isMobile && allCards.length > 1) {
-    let current = 0;
-    let intervalId = null;
+  let carouselInitialized = false;
+  let current = 0;
+  let intervalId = null;
+  let prevBtn, nextBtn;
+
+  function showCard(idx) {
+    const inGroup1 = idx < cards1.length;
+    group1.style.display = inGroup1 ? 'flex' : 'none';
+    group2.style.display = inGroup1 ? 'none' : 'flex';
+
+    allCards.forEach((card, i) => {
+      card.style.display = i === idx ? 'block' : 'none';
+    });
+
+    // Oculta todos los servicios y muestra solo el correspondiente
+    serviceItems.forEach(item => {
+      if (item.getAttribute('data-file') === allCards[idx].getAttribute('data-file')) {
+        item.style.display = 'block';
+        item.classList.add('active');
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  function nextCard() {
+    current = (current + 1) % allCards.length;
+    showCard(current);
+  }
+
+  function prevCard() {
+    current = (current - 1 + allCards.length) % allCards.length;
+    showCard(current);
+  }
+
+  function startAuto() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(nextCard, 3000);
+  }
+
+  function stopAuto() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = null;
+  }
+
+  function initCarousel() {
+    if (carouselInitialized || allCards.length <= 1) return;
+    carouselInitialized = true;
 
     // Oculta "Otros Servicios" y "Volver"
     const cardNext = group1.querySelector('.card-next');
@@ -334,52 +383,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const cardPrev = group2.querySelector('.card-prev');
     if (cardPrev) cardPrev.style.display = 'none';
 
-    // Crea botones de navegación
-    const prevBtn = document.createElement('button');
-    prevBtn.textContent = '←';
+    // Crea botones de navegación si no existen
+    prevBtn = document.createElement('button');
+    prevBtn.textContent = '<';
     prevBtn.className = 'carousel-prev';
-    const nextBtn = document.createElement('button');
-    nextBtn.textContent = '→';
+    nextBtn = document.createElement('button');
+    nextBtn.textContent = '>';
     nextBtn.className = 'carousel-next';
 
     cardsContainer.appendChild(prevBtn);
     cardsContainer.appendChild(nextBtn);
-
-    function showCard(idx) {
-      const inGroup1 = idx < cards1.length;
-      group1.style.display = inGroup1 ? 'flex' : 'none';
-      group2.style.display = inGroup1 ? 'none' : 'flex';
-
-      allCards.forEach((card, i) => {
-        card.style.display = i === idx ? 'block' : 'none';
-      });
-
-      // Oculta todos los servicios y muestra solo el correspondiente
-      serviceItems.forEach(item => {
-        if (item.getAttribute('data-file') === allCards[idx].getAttribute('data-file')) {
-          item.style.display = 'block';
-          item.classList.add('active');
-        } else {
-          item.style.display = 'none';
-          item.classList.remove('active');
-        }
-      });
-    }
-
-    function nextCard() {
-      current = (current + 1) % allCards.length;
-      showCard(current);
-    }
-
-    function prevCard() {
-      current = (current - 1 + allCards.length) % allCards.length;
-      showCard(current);
-    }
-
-    function startAuto() {
-      if (intervalId) clearInterval(intervalId);
-      intervalId = setInterval(nextCard, 3000);
-    }
 
     prevBtn.addEventListener('click', function () {
       prevCard();
@@ -391,8 +404,45 @@ document.addEventListener('DOMContentLoaded', function () {
       startAuto();
     });
 
-    // Inicializa carousel
     showCard(current);
     startAuto();
   }
+
+  function destroyCarousel() {
+    if (!carouselInitialized) return;
+    carouselInitialized = false;
+    stopAuto();
+
+    // Muestra todos los cards y servicios normalmente
+    group1.style.display = '';
+    group2.style.display = '';
+    allCards.forEach(card => {
+      card.style.display = '';
+    });
+    serviceItems.forEach(item => {
+      item.style.display = '';
+      item.classList.remove('active');
+    });
+
+    // Quita botones de navegación
+    if (prevBtn && prevBtn.parentNode) prevBtn.parentNode.removeChild(prevBtn);
+    if (nextBtn && nextBtn.parentNode) nextBtn.parentNode.removeChild(nextBtn);
+
+    // Muestra "Otros Servicios" y "Volver" si existen
+    const cardNext = group1.querySelector('.card-next');
+    if (cardNext) cardNext.style.display = '';
+    const cardPrev = group2.querySelector('.card-prev');
+    if (cardPrev) cardPrev.style.display = '';
+  }
+
+  function handleResponsive() {
+    if (isMobile()) {
+      initCarousel();
+    } else {
+      destroyCarousel();
+    }
+  }
+
+  window.addEventListener('resize', handleResponsive);
+  handleResponsive();
 });
