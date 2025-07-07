@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   function isMobile() {
-    return /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    return /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent) || window.innerWidth <= 1024;
   }
 
   const cardsContainer = document.querySelector('.cards-services');
