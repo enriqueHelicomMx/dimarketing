@@ -113,7 +113,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .header {
@@ -516,15 +515,16 @@ section {
 }
 
 .contact .box-container .content {
-  flex: 1 1 10rem;
+  max-width: 600px;
+  width: 700px;
 }
 
 .contact .box-container .content p {
   color: white;
   font-size: 1.7rem;
   font-family: "myriadpro_bold";
-  text-align: start;
-  padding: 2rem 20rem;
+  text-align: center;
+  margin: 0rem auto;
 }
 
 .contact .box-container .content .card {
@@ -587,6 +587,7 @@ section {
   border-radius: 1.5rem;
   padding: 3rem 2rem;
   height: 500px;
+  width: 100%;
 }
 
 .contact .box-container .form-contact form .row {
@@ -997,8 +998,9 @@ html.lang-en .hide-on-en,
     padding: 2rem 5.5rem;
   }
 
-  .contact .box-container .content p {
-    padding: 2rem 2rem;
+  .contact .box-container .content {
+    width: 350px;
+    
   }
 
   .services {
